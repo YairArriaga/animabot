@@ -1,0 +1,4 @@
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.exe
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csprojAssemblyReference.cache
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfoInputs.cache
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfo.cs
