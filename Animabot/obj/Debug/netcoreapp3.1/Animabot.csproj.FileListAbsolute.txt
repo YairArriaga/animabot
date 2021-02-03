@@ -1,4 +1,5 @@
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.exe
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Settings.job
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.deps.json
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.runtimeconfig.json
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.runtimeconfig.dev.json
@@ -41,6 +42,8 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Newton
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Linq.Async.dll
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.Properties.Resources.resources
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.GenerateResource.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.CoreCompileInputs.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfoInputs.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfo.cs
