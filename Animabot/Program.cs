@@ -9,6 +9,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Discord.Addons.Interactive;
 using System.Runtime.InteropServices;
+using Microsoft.Extensions.Hosting;
 
 namespace Animabot
 {
@@ -16,13 +17,15 @@ namespace Animabot
     {
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
-        private DiscordSocketClient _client;
+        public DiscordSocketClient _client;
         //private CommandService _commands;
         public CommandService _commands;
         public IServiceProvider _services;
 
         public async Task RunBotAsync()
         {
+            Environment.GetEnvironmentVariable("PORT");
+
             _client = new DiscordSocketClient();
             _commands = new CommandService();
 
@@ -32,7 +35,7 @@ namespace Animabot
                 .AddSingleton<InteractiveService>()
                 .BuildServiceProvider();
 
-            string token = "ODAxNzA4MDI4MTU5MDY2MTMy.YAkmyA.61nMMpxP5CMlMGlvLDa5JN3yStM";
+           string token = "ODAxNzA4MDI4MTU5MDY2MTMy.YAkmyA.6f5wx5EKhOsRLL72OhUeMqeP7Yw";
 
             _client.Log += Client_Log;
             _client.UserJoined += UserJoined;
