@@ -8,35 +8,49 @@
     ".NETCoreApp,Version=v3.1": {
       "Animabot/1.0.0": {
         "dependencies": {
-          "Discord.Net": "2.2.0",
+          "Discord.Addons.Interactive": "2.0.0",
+          "Discord.Net": "2.3.0",
           "Microsoft.Bot.Builder.Dialogs": "4.11.1",
-          "Microsoft.Extensions.DependencyInjection": "5.0.1"
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.8"
         },
         "runtime": {
           "Animabot.dll": {}
         }
       },
-      "Discord.Net/2.2.0": {
+      "Discord.Addons.Interactive/2.0.0": {
         "dependencies": {
-          "Discord.Net.Commands": "2.2.0",
-          "Discord.Net.Core": "2.2.0",
-          "Discord.Net.Rest": "2.2.0",
-          "Discord.Net.WebSocket": "2.2.0",
-          "Discord.Net.Webhook": "2.2.0"
-        }
-      },
-      "Discord.Net.Commands/2.2.0": {
-        "dependencies": {
-          "Discord.Net.Core": "2.2.0"
+          "Discord.Net.Commands": "2.3.0",
+          "Discord.Net.WebSocket": "2.3.0"
         },
         "runtime": {
-          "lib/netstandard2.1/Discord.Net.Commands.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.0"
+          "lib/netstandard2.0/Discord.Addons.Interactive.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
           }
         }
       },
-      "Discord.Net.Core/2.2.0": {
+      "Discord.Net/2.3.0": {
+        "dependencies": {
+          "Discord.Net.Commands": "2.3.0",
+          "Discord.Net.Core": "2.3.0",
+          "Discord.Net.Rest": "2.3.0",
+          "Discord.Net.WebSocket": "2.3.0",
+          "Discord.Net.Webhook": "2.3.0"
+        }
+      },
+      "Discord.Net.Commands/2.3.0": {
+        "dependencies": {
+          "Discord.Net.Core": "2.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Discord.Net.Commands.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
+          }
+        }
+      },
+      "Discord.Net.Core/2.3.0": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
           "System.Collections.Immutable": "1.4.0",
@@ -44,43 +58,43 @@
         },
         "runtime": {
           "lib/netstandard2.1/Discord.Net.Core.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.0"
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
           }
         }
       },
-      "Discord.Net.Rest/2.2.0": {
+      "Discord.Net.Rest/2.3.0": {
         "dependencies": {
-          "Discord.Net.Core": "2.2.0"
+          "Discord.Net.Core": "2.3.0"
         },
         "runtime": {
           "lib/netstandard2.1/Discord.Net.Rest.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.0"
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
           }
         }
       },
-      "Discord.Net.Webhook/2.2.0": {
+      "Discord.Net.Webhook/2.3.0": {
         "dependencies": {
-          "Discord.Net.Core": "2.2.0",
-          "Discord.Net.Rest": "2.2.0"
+          "Discord.Net.Core": "2.3.0",
+          "Discord.Net.Rest": "2.3.0"
         },
         "runtime": {
           "lib/netstandard2.1/Discord.Net.Webhook.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.0"
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
           }
         }
       },
-      "Discord.Net.WebSocket/2.2.0": {
+      "Discord.Net.WebSocket/2.3.0": {
         "dependencies": {
-          "Discord.Net.Core": "2.2.0",
-          "Discord.Net.Rest": "2.2.0"
+          "Discord.Net.Core": "2.3.0",
+          "Discord.Net.Rest": "2.3.0"
         },
         "runtime": {
           "lib/netstandard2.1/Discord.Net.WebSocket.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.0"
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
           }
         }
       },
@@ -441,6 +455,7 @@
           }
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {},
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -1309,47 +1324,54 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Discord.Net/2.2.0": {
+    "Discord.Addons.Interactive/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D6X8Ap2yLEymJ0wfG8U1oW4zOaZThdjjg9XWrTD1CbEyCQzEEdauynNLEzZhw6b3RXeDdWVCyLdJIrSGObWNpg==",
-      "path": "discord.net/2.2.0",
-      "hashPath": "discord.net.2.2.0.nupkg.sha512"
+      "sha512": "sha512-j/bkGeDniPuODOOC+3ZpKvLmoG0z1NHSZrVu6bnaUEYd0tMY4TxaIwl36ue7fK9MXrqQc8VcjcDnvM6JX+V6HA==",
+      "path": "discord.addons.interactive/2.0.0",
+      "hashPath": "discord.addons.interactive.2.0.0.nupkg.sha512"
     },
-    "Discord.Net.Commands/2.2.0": {
+    "Discord.Net/2.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hg3w+pyXOy+I4D5VWfax0IUdnmz8Ji9SOdx+8KjJXqccUVnulx6HkKc5q87BukEbOWEJuyzxo1e+pe+xnW0bgw==",
-      "path": "discord.net.commands/2.2.0",
-      "hashPath": "discord.net.commands.2.2.0.nupkg.sha512"
+      "sha512": "sha512-YILjBwqYdvich6v1rfO/OhdBrdhPQB/AKEohYISdOJ+LiwfMPCafAo3YN/VutmeAGpvmrdv1fP/D0T3rHo2JrQ==",
+      "path": "discord.net/2.3.0",
+      "hashPath": "discord.net.2.3.0.nupkg.sha512"
     },
-    "Discord.Net.Core/2.2.0": {
+    "Discord.Net.Commands/2.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0iEjPeqm+Ez481WlRV7IsncfXZoPcae0S2wP14agtZJ6HmT1C8FdPnL/gRmz2Cqs4t8lHukqD9i7nlknaSRkLg==",
-      "path": "discord.net.core/2.2.0",
-      "hashPath": "discord.net.core.2.2.0.nupkg.sha512"
+      "sha512": "sha512-mtt3D4Bh4Qq72cRYwaQxHAVEkQEt2AoMoka9TtOy5DqDyeCeKNaoadwTE4myPNIu6lhj7mB2362w+2ua6hn9Rw==",
+      "path": "discord.net.commands/2.3.0",
+      "hashPath": "discord.net.commands.2.3.0.nupkg.sha512"
     },
-    "Discord.Net.Rest/2.2.0": {
+    "Discord.Net.Core/2.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tTRjurjFRfSSfGB0kOAOqzagRqXPz473U50tzt19f8OD5/9Z0EyTu5WE898wU135Um+Vb3L8XTvhZHdAmOKhGw==",
-      "path": "discord.net.rest/2.2.0",
-      "hashPath": "discord.net.rest.2.2.0.nupkg.sha512"
+      "sha512": "sha512-caRCanqnriPLaiJiSDYTg3VoRjA5W9n9SwVljjNnNh/MkLaRAUgrpVsKFDv5LIqpryvrbDatl1Z7M207H+sLMw==",
+      "path": "discord.net.core/2.3.0",
+      "hashPath": "discord.net.core.2.3.0.nupkg.sha512"
     },
-    "Discord.Net.Webhook/2.2.0": {
+    "Discord.Net.Rest/2.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LmzBX2BcI5IXbmr4FZpiAWPl2BPgTwyrnZwqDdaYwbH+7FzDODX0PyieE/04D/fAP77MRb4JUvxga0MMLCuftA==",
-      "path": "discord.net.webhook/2.2.0",
-      "hashPath": "discord.net.webhook.2.2.0.nupkg.sha512"
+      "sha512": "sha512-5m2nV4A9QIBtRsc7yIu9rQpc4Q7GpL6AaZ+xeAFdPx9dkUhikHIVZ0l1qqmn+pFSAUZ9e9fTsKzMfr7Loqz4aQ==",
+      "path": "discord.net.rest/2.3.0",
+      "hashPath": "discord.net.rest.2.3.0.nupkg.sha512"
     },
-    "Discord.Net.WebSocket/2.2.0": {
+    "Discord.Net.Webhook/2.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jZb/Ae5w0K0dnGQETcSJu0qA3j5vgG7Dtl27pAkiug90omFs5SB20WNReo25WoJuidPAa6gmaBEWm5RPaBghXw==",
-      "path": "discord.net.websocket/2.2.0",
-      "hashPath": "discord.net.websocket.2.2.0.nupkg.sha512"
+      "sha512": "sha512-LJ6zg/0QA6nn/TEBhflkA0DbTUsrq7BRQf13UielPQ0sRblM81cuSOzQ9Tl18uc02lTRciIOiEisWs+7erkccw==",
+      "path": "discord.net.webhook/2.3.0",
+      "hashPath": "discord.net.webhook.2.3.0.nupkg.sha512"
+    },
+    "Discord.Net.WebSocket/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mktzQvXy9oKF3j7F8/f3v9xcUmYxXb8oMBGD4czZRn0P/BOM4cz0OdmCHr5wVyMb0W7q0VxmnfKYNsN0kGzFNA==",
+      "path": "discord.net.websocket/2.3.0",
+      "hashPath": "discord.net.websocket.2.3.0.nupkg.sha512"
     },
     "Microsoft.Bot.Builder/4.11.1": {
       "type": "package",
@@ -1560,6 +1582,13 @@
       "sha512": "sha512-KDYlgTyO693V6pi6SGk9eg+dDvKjuOgmkapbHdpnB1SmTPKpvWxVLIMyARJsCFLfB6axyURUJHOfvxBQ0yJKeg==",
       "path": "microsoft.rest.clientruntime/2.3.21",
       "hashPath": "microsoft.rest.clientruntime.2.3.21.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LXlwvlXetgFg2sqsLCzi+Kd+nV78VrRzy9u6nKU05yx9tcsF9BcLqL/+vtj01Z7RPhp0U8D4Px/bHbyMR9Ddjg==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.10.8",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",

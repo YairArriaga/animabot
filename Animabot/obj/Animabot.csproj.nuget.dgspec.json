@@ -43,9 +43,13 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Discord.Addons.Interactive": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Discord.Net": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.3.0, )"
             },
             "Microsoft.Bot.Builder.Dialogs": {
               "target": "Package",
@@ -54,6 +58,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[5.0.1, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.8, )"
             }
           },
           "imports": [

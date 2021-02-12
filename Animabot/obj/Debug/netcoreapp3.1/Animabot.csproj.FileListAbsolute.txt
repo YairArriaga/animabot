@@ -5,6 +5,7 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animab
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.runtimeconfig.dev.json
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.pdb
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Addons.Interactive.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Commands.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Core.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Rest.dll
@@ -42,13 +43,13 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Newton
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Linq.Async.dll
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csprojAssemblyReference.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.Properties.Resources.resources
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.GenerateResource.cache
-C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.CoreCompileInputs.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfoInputs.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfo.cs
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.CopyComplete
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.pdb
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.genruntimeconfig.cache
-C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csprojAssemblyReference.cache
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.CoreCompileInputs.cache

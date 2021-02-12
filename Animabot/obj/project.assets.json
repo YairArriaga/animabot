@@ -2,20 +2,33 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Discord.Net/2.2.0": {
+      "Discord.Addons.Interactive/2.0.0": {
         "type": "package",
         "dependencies": {
           "Discord.Net.Commands": "2.2.0",
-          "Discord.Net.Core": "2.2.0",
-          "Discord.Net.Rest": "2.2.0",
-          "Discord.Net.WebSocket": "2.2.0",
-          "Discord.Net.Webhook": "2.2.0"
+          "Discord.Net.WebSocket": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Discord.Addons.Interactive.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Discord.Addons.Interactive.dll": {}
         }
       },
-      "Discord.Net.Commands/2.2.0": {
+      "Discord.Net/2.3.0": {
         "type": "package",
         "dependencies": {
-          "Discord.Net.Core": "2.2.0"
+          "Discord.Net.Commands": "2.3.0",
+          "Discord.Net.Core": "2.3.0",
+          "Discord.Net.Rest": "2.3.0",
+          "Discord.Net.WebSocket": "2.3.0",
+          "Discord.Net.Webhook": "2.3.0"
+        }
+      },
+      "Discord.Net.Commands/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "2.3.0"
         },
         "compile": {
           "lib/netstandard2.1/Discord.Net.Commands.dll": {}
@@ -24,7 +37,7 @@
           "lib/netstandard2.1/Discord.Net.Commands.dll": {}
         }
       },
-      "Discord.Net.Core/2.2.0": {
+      "Discord.Net.Core/2.3.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "12.0.2",
@@ -38,10 +51,10 @@
           "lib/netstandard2.1/Discord.Net.Core.dll": {}
         }
       },
-      "Discord.Net.Rest/2.2.0": {
+      "Discord.Net.Rest/2.3.0": {
         "type": "package",
         "dependencies": {
-          "Discord.Net.Core": "2.2.0"
+          "Discord.Net.Core": "2.3.0"
         },
         "compile": {
           "lib/netstandard2.1/Discord.Net.Rest.dll": {}
@@ -50,11 +63,11 @@
           "lib/netstandard2.1/Discord.Net.Rest.dll": {}
         }
       },
-      "Discord.Net.Webhook/2.2.0": {
+      "Discord.Net.Webhook/2.3.0": {
         "type": "package",
         "dependencies": {
-          "Discord.Net.Core": "2.2.0",
-          "Discord.Net.Rest": "2.2.0"
+          "Discord.Net.Core": "2.3.0",
+          "Discord.Net.Rest": "2.3.0"
         },
         "compile": {
           "lib/netstandard2.1/Discord.Net.Webhook.dll": {}
@@ -63,11 +76,11 @@
           "lib/netstandard2.1/Discord.Net.Webhook.dll": {}
         }
       },
-      "Discord.Net.WebSocket/2.2.0": {
+      "Discord.Net.WebSocket/2.3.0": {
         "type": "package",
         "dependencies": {
-          "Discord.Net.Core": "2.2.0",
-          "Discord.Net.Rest": "2.2.0"
+          "Discord.Net.Core": "2.3.0",
+          "Discord.Net.Rest": "2.3.0"
         },
         "compile": {
           "lib/netstandard2.1/Discord.Net.WebSocket.dll": {}
@@ -479,6 +492,13 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props": {},
+          "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -1989,24 +2009,36 @@
     }
   },
   "libraries": {
-    "Discord.Net/2.2.0": {
-      "sha512": "D6X8Ap2yLEymJ0wfG8U1oW4zOaZThdjjg9XWrTD1CbEyCQzEEdauynNLEzZhw6b3RXeDdWVCyLdJIrSGObWNpg==",
+    "Discord.Addons.Interactive/2.0.0": {
+      "sha512": "j/bkGeDniPuODOOC+3ZpKvLmoG0z1NHSZrVu6bnaUEYd0tMY4TxaIwl36ue7fK9MXrqQc8VcjcDnvM6JX+V6HA==",
       "type": "package",
-      "path": "discord.net/2.2.0",
+      "path": "discord.addons.interactive/2.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "discord.net.2.2.0.nupkg.sha512",
+        "discord.addons.interactive.2.0.0.nupkg.sha512",
+        "discord.addons.interactive.nuspec",
+        "lib/netstandard2.0/Discord.Addons.Interactive.dll"
+      ]
+    },
+    "Discord.Net/2.3.0": {
+      "sha512": "YILjBwqYdvich6v1rfO/OhdBrdhPQB/AKEohYISdOJ+LiwfMPCafAo3YN/VutmeAGpvmrdv1fP/D0T3rHo2JrQ==",
+      "type": "package",
+      "path": "discord.net/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "discord.net.2.3.0.nupkg.sha512",
         "discord.net.nuspec"
       ]
     },
-    "Discord.Net.Commands/2.2.0": {
-      "sha512": "hg3w+pyXOy+I4D5VWfax0IUdnmz8Ji9SOdx+8KjJXqccUVnulx6HkKc5q87BukEbOWEJuyzxo1e+pe+xnW0bgw==",
+    "Discord.Net.Commands/2.3.0": {
+      "sha512": "mtt3D4Bh4Qq72cRYwaQxHAVEkQEt2AoMoka9TtOy5DqDyeCeKNaoadwTE4myPNIu6lhj7mB2362w+2ua6hn9Rw==",
       "type": "package",
-      "path": "discord.net.commands/2.2.0",
+      "path": "discord.net.commands/2.3.0",
       "files": [
         ".nupkg.metadata",
-        "discord.net.commands.2.2.0.nupkg.sha512",
+        "discord.net.commands.2.3.0.nupkg.sha512",
         "discord.net.commands.nuspec",
         "lib/net461/Discord.Net.Commands.dll",
         "lib/net461/Discord.Net.Commands.xml",
@@ -2016,13 +2048,13 @@
         "lib/netstandard2.1/Discord.Net.Commands.xml"
       ]
     },
-    "Discord.Net.Core/2.2.0": {
-      "sha512": "0iEjPeqm+Ez481WlRV7IsncfXZoPcae0S2wP14agtZJ6HmT1C8FdPnL/gRmz2Cqs4t8lHukqD9i7nlknaSRkLg==",
+    "Discord.Net.Core/2.3.0": {
+      "sha512": "caRCanqnriPLaiJiSDYTg3VoRjA5W9n9SwVljjNnNh/MkLaRAUgrpVsKFDv5LIqpryvrbDatl1Z7M207H+sLMw==",
       "type": "package",
-      "path": "discord.net.core/2.2.0",
+      "path": "discord.net.core/2.3.0",
       "files": [
         ".nupkg.metadata",
-        "discord.net.core.2.2.0.nupkg.sha512",
+        "discord.net.core.2.3.0.nupkg.sha512",
         "discord.net.core.nuspec",
         "lib/net461/Discord.Net.Core.dll",
         "lib/net461/Discord.Net.Core.xml",
@@ -2032,14 +2064,14 @@
         "lib/netstandard2.1/Discord.Net.Core.xml"
       ]
     },
-    "Discord.Net.Rest/2.2.0": {
-      "sha512": "tTRjurjFRfSSfGB0kOAOqzagRqXPz473U50tzt19f8OD5/9Z0EyTu5WE898wU135Um+Vb3L8XTvhZHdAmOKhGw==",
+    "Discord.Net.Rest/2.3.0": {
+      "sha512": "5m2nV4A9QIBtRsc7yIu9rQpc4Q7GpL6AaZ+xeAFdPx9dkUhikHIVZ0l1qqmn+pFSAUZ9e9fTsKzMfr7Loqz4aQ==",
       "type": "package",
-      "path": "discord.net.rest/2.2.0",
+      "path": "discord.net.rest/2.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "discord.net.rest.2.2.0.nupkg.sha512",
+        "discord.net.rest.2.3.0.nupkg.sha512",
         "discord.net.rest.nuspec",
         "lib/net461/Discord.Net.Rest.dll",
         "lib/net461/Discord.Net.Rest.xml",
@@ -2049,13 +2081,13 @@
         "lib/netstandard2.1/Discord.Net.Rest.xml"
       ]
     },
-    "Discord.Net.Webhook/2.2.0": {
-      "sha512": "LmzBX2BcI5IXbmr4FZpiAWPl2BPgTwyrnZwqDdaYwbH+7FzDODX0PyieE/04D/fAP77MRb4JUvxga0MMLCuftA==",
+    "Discord.Net.Webhook/2.3.0": {
+      "sha512": "LJ6zg/0QA6nn/TEBhflkA0DbTUsrq7BRQf13UielPQ0sRblM81cuSOzQ9Tl18uc02lTRciIOiEisWs+7erkccw==",
       "type": "package",
-      "path": "discord.net.webhook/2.2.0",
+      "path": "discord.net.webhook/2.3.0",
       "files": [
         ".nupkg.metadata",
-        "discord.net.webhook.2.2.0.nupkg.sha512",
+        "discord.net.webhook.2.3.0.nupkg.sha512",
         "discord.net.webhook.nuspec",
         "lib/netstandard2.0/Discord.Net.Webhook.dll",
         "lib/netstandard2.0/Discord.Net.Webhook.xml",
@@ -2063,13 +2095,14 @@
         "lib/netstandard2.1/Discord.Net.Webhook.xml"
       ]
     },
-    "Discord.Net.WebSocket/2.2.0": {
-      "sha512": "jZb/Ae5w0K0dnGQETcSJu0qA3j5vgG7Dtl27pAkiug90omFs5SB20WNReo25WoJuidPAa6gmaBEWm5RPaBghXw==",
+    "Discord.Net.WebSocket/2.3.0": {
+      "sha512": "mktzQvXy9oKF3j7F8/f3v9xcUmYxXb8oMBGD4czZRn0P/BOM4cz0OdmCHr5wVyMb0W7q0VxmnfKYNsN0kGzFNA==",
       "type": "package",
-      "path": "discord.net.websocket/2.2.0",
+      "path": "discord.net.websocket/2.3.0",
       "files": [
         ".nupkg.metadata",
-        "discord.net.websocket.2.2.0.nupkg.sha512",
+        ".signature.p7s",
+        "discord.net.websocket.2.3.0.nupkg.sha512",
         "discord.net.websocket.nuspec",
         "lib/net461/Discord.Net.WebSocket.dll",
         "lib/net461/Discord.Net.WebSocket.xml",
@@ -2620,6 +2653,70 @@
         "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
         "microsoft.rest.clientruntime.2.3.21.nupkg.sha512",
         "microsoft.rest.clientruntime.nuspec"
+      ]
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {
+      "sha512": "LXlwvlXetgFg2sqsLCzi+Kd+nV78VrRzy9u6nKU05yx9tcsF9BcLqL/+vtj01Z7RPhp0U8D4Px/bHbyMR9Ddjg==",
+      "type": "package",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.10.8",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EULA.md",
+        "ThirdPartyNotices.txt",
+        "build/Container.props",
+        "build/Container.targets",
+        "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props",
+        "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets",
+        "build/ToolsTarget.props",
+        "build/ToolsTarget.targets",
+        "microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
+        "microsoft.visualstudio.azure.containers.tools.targets.nuspec",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Common.dll",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Shared.dll",
+        "tools/Microsoft.VisualStudio.Containers.Tools.Tasks.dll",
+        "tools/Newtonsoft.Json.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/cs/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/de/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/es/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/fr/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/it/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/ja/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/ko/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/pl/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/pt-BR/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/ru/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/tr/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/utils/KillProcess.exe",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/zh-Hans/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
+        "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -6747,9 +6844,11 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Discord.Net >= 2.2.0",
+      "Discord.Addons.Interactive >= 2.0.0",
+      "Discord.Net >= 2.3.0",
       "Microsoft.Bot.Builder.Dialogs >= 4.11.1",
-      "Microsoft.Extensions.DependencyInjection >= 5.0.1"
+      "Microsoft.Extensions.DependencyInjection >= 5.0.1",
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.8"
     ]
   },
   "packageFolders": {
@@ -6795,9 +6894,13 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Discord.Addons.Interactive": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Discord.Net": {
             "target": "Package",
-            "version": "[2.2.0, )"
+            "version": "[2.3.0, )"
           },
           "Microsoft.Bot.Builder.Dialogs": {
             "target": "Package",
@@ -6806,6 +6909,10 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[5.0.1, )"
+          },
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+            "target": "Package",
+            "version": "[1.10.8, )"
           }
         },
         "imports": [

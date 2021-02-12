@@ -6,9 +6,9 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
-using Animabot.Modulos;
 using System.Collections.Generic;
-using System.IO;
+using Discord.Addons.Interactive;
+using System.Runtime.InteropServices;
 
 namespace Animabot
 {
@@ -16,14 +16,11 @@ namespace Animabot
     {
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
-
-
         private DiscordSocketClient _client;
         //private CommandService _commands;
         public CommandService _commands;
+        public IServiceProvider _services;
 
-        private IServiceProvider _services;
-        
         public async Task RunBotAsync()
         {
             _client = new DiscordSocketClient();
@@ -32,14 +29,13 @@ namespace Animabot
             _services = new ServiceCollection()
                 .AddSingleton(_client)
                 .AddSingleton(_commands)
+                .AddSingleton<InteractiveService>()
                 .BuildServiceProvider();
-            //animabot pruebas
-            //string token = "ODAxNjAxNDgwMjU1MjA5NDcy.YAjDjQ.KEDrIvoKK93LMRvZNYk1966BHPY";
-            //string token = "ODAxNzA4MDI4MTU5MDY2MTMy.YAkmyA.q9d8A1bz4xr3AAIeNVLh79B8K3M";
-            string token = "ODAxNzA4MDI4MTU5MDY2MTMy.YAkmyA.Ai6Px3ly7uPYsOhzTVd2s7fhCI4";
 
+            string token = "ODAxNzA4MDI4MTU5MDY2MTMy.YAkmyA.61nMMpxP5CMlMGlvLDa5JN3yStM";
 
-            _client.Log += _client_Log;
+            _client.Log += Client_Log;
+            _client.UserJoined += UserJoined;
 
 
             await RegisterCommandsAsync();
@@ -47,23 +43,33 @@ namespace Animabot
             await _client.LoginAsync(TokenType.Bot, token);
 
             await _client.StartAsync();
-            //await _client.UserJoined += join;
 
             await Task.Delay(-1);
 
 
         }
-        ulong patron = 625231385841369098;
 
-        //private async Task join(SocketGuildUser user)
-        //{
-        //    var emote2 = Emote.Parse("<:animal:787921991432798208>");
-        //    var emote3 = Emote.Parse("<:ke:759912866445918249>");
-        //    var wel= await (user.Guild.DefaultChannel).SendMessageAsync("Bienvedino al Trip pasatela muy bien cabron " + emote3);
-        //    await wel.AddReactionAsync(emote2);
-        //    return;
-        //}
-        private Task _client_Log(LogMessage arg)
+        private async Task UserJoined(SocketGuildUser gUser)
+        {
+            if (gUser.IsBot || gUser.IsWebhook)
+            {
+                return;
+            }
+            else
+            {
+                var count =  gUser.Guild.GetUsersAsync();
+                var users = count.CountAsync();
+                var dmChannel = await gUser.GetOrCreateDMChannelAsync();
+                Console.WriteLine(users);
+                await dmChannel.SendMessageAsync("Bienvenido a la banda tripeña");
+                //await (gUser.Guild.DefaultChannel).SendMessageAsync("Bienvenido al trip Batallas, solo pierdes si te callas " + gUser.Mention.ToString());
+                
+            }
+        }
+
+        private readonly ulong patron = 625231385841369098;
+
+        private Task Client_Log(LogMessage arg)
         {
             Console.WriteLine(arg);
             return Task.CompletedTask;
@@ -73,6 +79,7 @@ namespace Animabot
         {
             _client.MessageReceived += HandleCommandAsync;
             await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+
         }
 
         private async Task HandleCommandAsync(SocketMessage arg)
@@ -94,6 +101,19 @@ namespace Animabot
                     var jefe = await message.Channel.SendMessageAsync("Como lo ve patron, que quiere Beta dice <@391440280949227531>");
                     await jefe.AddReactionAsync(emote);
                 }
+                else if (message.Content.Contains("<@801708028159066132>"))
+                {
+                    var emote = Emote.Parse("<:ke:759912866445918249>");
+                    var jefe = await message.Channel.SendMessageAsync("puras mamadas dices wey, saquese a fumar");
+                    await jefe.AddReactionAsync(emote);
+                    var messages = context.Channel.GetMessagesAsync(2).Flatten();
+                    await Task.Delay(3500);
+                    foreach (var h in await messages.ToArrayAsync())
+                    {
+                        await context.Channel.DeleteMessageAsync(h);
+                    }
+                }
+
                 else
                 {
                     return;
@@ -142,7 +162,7 @@ namespace Animabot
                             await message.Channel.SendMessageAsync("soy espejo y me reflejo y entre el culo te lo dejo" + message.Author.Mention + " calmate alv <@785294352331177985>");
                         }
                     }
-                    else if (message.Content.Contains(" bot joton") || message.Content.Contains("bot joto") || message.Content.Contains("bot puton") || message.Content.Contains( "bot puto"))
+                    else if (message.Content.Contains(" bot joton") || message.Content.Contains("bot joto") || message.Content.Contains("bot puton") || message.Content.Contains("bot puto"))
                     {
                         if (context.User.Id == patron)
                         {
@@ -164,6 +184,41 @@ namespace Animabot
                         var emote = Emote.Parse("<:ke:759912866445918249>");
                         await mensa.AddReactionAsync(emote);
                         await message.Channel.SendMessageAsync("http://gph.is/1L7eGWw");
+
+                    }
+                    else if (message.Content.Contains("bot tira unas barras"))
+                    {
+                        var random = new Random();
+
+                        var list = new List<string> { 
+                            "Estaba el otro dia, a un morro escuchando, que puro Mexico pa arriba y dije a pinche morro liandro, " +
+                            "asi es como lo pensaste de mi compa el <@589976740332568587>  es de quien estoy hablado", "Estaba el" +
+                            " otro dia viendo peticiones y pura japonesa un vato pedia por montones, dije a caray " +
+                            "que son esas perversiones y luego vi que era don gato y dije compa <@526260701484941323> hay te miro mas al rato", "A el le rompieron el " +
+                            "corazon esa mala chica a la que le tiraba el calzon, es un compa adicto al cristal, ya deja esa madre <@707574953431793684> porque esa droga es mortal ", "Estaba el otro dia, al macumba yo escuchando que se volvio poeta  y sus prosas iba recitando  a su musa y no es la luna  de la <@293150245720948736> estoy hablando", "Estaba el otro dia a un santero escuchando, que era gringo el pinche prieto chango y quesque a la chule va a va venir conquistando asi es del <@600076103977140247> estoy hablando" ,"Asi es como lo hago facilmente te desmadro, yo soy perro entrenado, " +
+                            "no aviso no ladro solo el pedazo te arranco, te saco un pinche susto, ese te mereces por causarme a mi un disgusto","Ya sabes dejo salir al demonio, se me nubla la mente, me pierdo por un instante, cuando reacciono estas tirado inconciente, por meterte conmigo y jugarle al valiente"," esta va para aquella musa, que me dejo a mi abandonado, porque era un infeliz desgraciado, me dejaste te fuiste, pero nadie como yo te ha valorado ",
+                            "Esta te dedico la proxima y la que sigue, un verso mas a ti dedcado una raya mas al tigre, de tantos que ha ti ya te he dedicado, el color naranja del felino se ha disipado, ya hasta parece pantera, este libro ,que de prosas hacia ti e dedicado"
+                        };
+                        int index = random.Next(list.Count);
+
+                        var mensa = await message.Channel.SendMessageAsync(list[index]);
+                        //var emote = Emote.Parse("<:ke:759912866445918249>");
+                        var emote1 = Emote.Parse("<:animal:787921991432798208>"); 
+                        await mensa.AddReactionAsync(emote1);
+
+                    }
+                    else if (message.Content.Contains("como vez a tu compa bot"))
+                    {
+                        var random = new Random();
+
+                        var list = new List<string> { "ajajaja ya quedo en el avion de tanta pelea con rocky mi compa <@785294352331177985>",
+                            "de tantas perversiones que lo hacen buscar quedo locochon <@785294352331177985>", "esta loco pero es chido el compa <@785294352331177985>",
+                            "dicen el santero le hechizo y por eso quedo  medio ido de la mente <@785294352331177985>" };
+                        int index = random.Next(list.Count);
+
+                        var mensa = await message.Channel.SendMessageAsync(list[index]);
+                        var emote = Emote.Parse("<:ke:759912866445918249>");
+                        await mensa.AddReactionAsync(emote);
 
                     }
                     #region 
@@ -209,10 +264,6 @@ namespace Animabot
 
                 }
             }
-
-
-
-
         }
         #region
         //public static String Test()

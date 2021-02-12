@@ -3,19 +3,16 @@ using Discord.Commands;
 using Discord.WebSocket;
 using System;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Serialization;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-
+using System.Data;
 namespace Animabot.Modulos
 {
+    [Name("Comandos")]
     public class Commands : ModuleBase<SocketCommandContext>
     {
-      
+
         [Command("banda")]
         [Summary(" - convocas a toda la banda")]
         public async Task Reply_1()
@@ -23,7 +20,20 @@ namespace Animabot.Modulos
 
             await ReplyAsync("la banda es culera se cotiza @everyone caiganle  :eyes:");
             await ReplyAsync("http://gph.is/28OHhlE");
+            await Context.Guild.DownloadUsersAsync(); //make sure we have each guild user 
+            foreach (var user in Context.Guild.Users)
+            {
+                try
+                {
+                    var channel = await user.GetOrCreateDMChannelAsync();
+                    //await channel.SendMessageAsync("Caiganle, porque se su mayor secreto y lo revelare... \n bueno no cierto caile a cotorrear");
+                }
+                catch (Exception e)
+                {
 
+                    Console.WriteLine(e);
+                } //Error
+            }
         }
         [Command("pollo")]
         [Summary(" - insultas al pollo")]
@@ -311,7 +321,7 @@ namespace Animabot.Modulos
         [Command("listrole")]
         [Summary(" - lista de Roles (admin)")]
         [RequireUserPermission(GuildPermission.ManageMessages, ErrorMessage = "No la juegue usted no puede hacer este jale")]
-        public async Task listRoleasync()
+        public async Task ListRoleasync()
         {
 
             foreach (var role in Context.Guild.Roles)
@@ -324,7 +334,7 @@ namespace Animabot.Modulos
         [Command("spamstring", RunMode = RunMode.Async)]
         [Summary(" - spamear commando + veces + link,frase o mencion")]
         [Alias("sp", "spamming", "spam")]
-        public async Task spamming(int times, string messsage)
+        public async Task Spamming(int times, [Remainder] string messsage)
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
             var emote1 = Emote.Parse("<:animal:787921991432798208>");
@@ -459,7 +469,7 @@ namespace Animabot.Modulos
             string enla;
             enla = post["url_overridden_by_dest"].ToString();
             Console.WriteLine(enla);
-            if (enla.Contains(".png") || (enla.Contains(".jpg")))
+            if (enla.Contains(".png") || (enla.Contains(".jpg") || enla.Contains("imgur")))
             {
                 var builder = new EmbedBuilder()
                     .WithImageUrl(post["url"].ToString())
@@ -513,7 +523,7 @@ namespace Animabot.Modulos
                 JObject post = JObject.Parse(arr[0]["data"]["children"][0]["data"].ToString());
                 string enla;
                 enla = post["url_overridden_by_dest"].ToString();
-                if (enla.Contains(".png") || (enla.Contains(".jpg")))
+                if (enla.Contains(".png") || (enla.Contains(".jpg")) || (enla.Contains("imgur")))
                 {
                     var builder = new EmbedBuilder()
                         .WithImageUrl(post["url"].ToString())
@@ -632,7 +642,24 @@ namespace Animabot.Modulos
             await logch.AddReactionAsync(emote);
 
         }
-        
+        [Command("calcula")]
+        [Summary(" - operacion matematica por si estas bien mecates")]
+        public async Task MathAsync([Remainder] string math)
+        {
+            var dt = new DataTable();
+            var result = dt.Compute(math, null);
+
+            await ReplyAsync($"El resultado {result}.");
+            await Task.Delay(6000);
+            //await message.DeleteAsync();
+            var messages = Context.Channel.GetMessagesAsync(2).Flatten();
+            foreach (var h in await messages.ToArrayAsync())
+            {
+                await this.Context.Channel.DeleteMessageAsync(h);
+            }
+
+
+        }
     }
 }
 
