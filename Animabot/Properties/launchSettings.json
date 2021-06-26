@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Animabot": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using System.Data;
+using System.Collections.Generic;
+
 namespace Animabot.Modulos
 {
     [Name("Comandos")]
     public class Commands : ModuleBase<SocketCommandContext>
     {
 
-        [Command("banda")]
+        [Command("banda", RunMode = RunMode.Async)]
         [Summary(" - convocas a toda la banda")]
         public async Task Reply_1()
         {
@@ -35,17 +37,19 @@ namespace Animabot.Modulos
                 } //Error
             }
         }
-        [Command("pollo")]
-        [Summary(" - insultas al pollo")]
-        public async Task Reply_2()
-        {
-            var emote = Emote.Parse("<:yo:777438723818258452>");
-            var pollo = await ReplyAsync("el sim simi es puto :sunglasses:");
-            await pollo.AddReactionAsync(emote);
-        }
-        [Command("bandamax")]
+        #region
+        //[Command("pollo", RunMode = RunMode.Async)]
+        //[Summary(" - insultas al pollo")]
+        //public async Task Reply_2()
+        //{
+        //    var emote = Emote.Parse("<:yo:777438723818258452>");
+        //    var pollo = await ReplyAsync("el sim simi es puto :sunglasses:");
+        //    await pollo.AddReactionAsync(emote);
+        //}
+        #endregion
+        [Command("bandamax", RunMode = RunMode.Async)]
         [Summary(" - presumes a tu prima (nsfw)")]
-        public async Task Reply_3()
+        public async Task Reply_2()
         {
             ulong canalito = 771574670356774973;
             if (Context.Channel.Id == canalito)
@@ -69,33 +73,37 @@ namespace Animabot.Modulos
 
             }
         }
-        [Command("Mestizo")]
-        [Summary(" - saludas al compa mestizo")]
-        public async Task Reply_4()
+        [Command("Mestizo", RunMode = RunMode.Async)]
+        [Alias("sordix")]
+        [Summary(" - saludas al compa Sordix(mestizo)")]
+        public async Task Reply_3()
         {
             var emote = Emote.Parse("<:yo:777438723818258452>");
             var emote1 = Emote.Parse("<:flag_mestizo:784656943389343744>");
             var emote2 = Emote.Parse("<:animal:787921991432798208>");
-            var emote3 = Emote.Parse("<:ke:759912866445918249>");
-            var mes = await ReplyAsync("El Mestizo sera sordo, Nacionalista, pero nunca traidor" + " :ear: :ear_with_hearing_aid: " + "\n" + emote3);
+  
+            await ReplyAsync("Caile pinche mestizo antes de que te caiga la ley <@589976740332568587>");
+            var mes = await ReplyAsync("https://imgur.com/gallery/4tqrPQy");
+        
             await mes.AddReactionAsync(emote);
             await mes.AddReactionAsync(emote1);
             await mes.AddReactionAsync(emote2);
         }
-        [Command("saludos")]
+        [Command("saludos", RunMode = RunMode.Async)]
         [Summary(" - saludas a toda la banda")]
-        public async Task Reply_5()
+        public async Task Reply_4()
         {
-            var emote1 = Emote.Parse("<:pija:784679664265330729>");
-            var emote = Emote.Parse("<:animal:787921991432798208>");
-            var sent = await ReplyAsync("saludos hijos del vergon" + "\n" + emote);
-            await sent.AddReactionAsync(emote1);
-            var verg = await ReplyAsync("http://gph.is/2prMfgl");
-            await verg.AddReactionAsync(emote);
+            var emote = Emote.Parse("<:ke:759912866445918249>");
+            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+            await ReplyAsync("Saludos hijos del pecado @everyone " + emote1);
+            var img = await ReplyAsync("https://imgur.com/gallery/qUgAHqa");
+            await img.AddReactionAsync(emote);
+            await img.AddReactionAsync(emote1);
+
         }
-        [Command("alioli")]
+        [Command("alioli", RunMode = RunMode.Async)]
         [Summary(" - saludas al compa alioli, pides pack en (nsfw)")]
-        public async Task Replys_6()
+        public async Task Replys_5()
         {
             ulong canalito = 771574670356774973;
             if (Context.Channel.Id == canalito)
@@ -110,48 +118,97 @@ namespace Animabot.Modulos
             else
             {
                 var emote = Emote.Parse("<:animal:787921991432798208>");
-                var sent = await ReplyAsync("Qvole mi CATMAN <@526260701484941323>");
+                var sent = await ReplyAsync("No te cotices pinche Aliolis Rehabilitado <@526260701484941323>");
                 await sent.AddReactionAsync(emote);
-                await ReplyAsync("https://gph.is/g/Z2nvM17");
+                await ReplyAsync("https://imgur.com/gallery/LBQ0ej5");
             }
         }
-        [Command("macumba")]
+        [Command("macumba", RunMode = RunMode.Async)]
         [Summary(" - saludas al compa Hechizero")]
+        public async Task Reply_6()
+        {
+            var emote = Emote.Parse("<:mycumbag:817620852379746344>");
+            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+            await ReplyAsync("Caile santero deja los ritos o ya te agarro el espirutu maligno <@600076103977140247>");
+            var img = await ReplyAsync("https://tenor.com/G54a.gif");
+            await img.AddReactionAsync(emote);
+            await img.AddReactionAsync(emote1);
+        }
+        [Command("jica", RunMode = RunMode.Async)]
+        [Summary(" - saludas al compa jica")]
         public async Task Reply_7()
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
-
-            var sent = await ReplyAsync("Aguas  que te tira un Hechizo <@600076103977140247> " + emote);
             var emote1 = Emote.Parse("<:animal:787921991432798208>");
-            await sent.AddReactionAsync(emote1);
-            var mac = await ReplyAsync("https://i.imgur.com/AiBPyYj.jpg");
-            await mac.AddReactionAsync(emote);
+            var emote2 = Emote.Parse("<:nodejs:857923149479280670>");
+            var emote3 = Emote.Parse("<:tw:857923184443392011>");
 
+            var emotes = new[]
+       {
+            new Emoji("1️⃣"),
+            new Emoji("2️⃣"),
+            new Emoji("3️⃣"),
+            new Emoji("4️⃣"),
+            new Emoji("5️⃣"),
+            new Emoji("6️⃣"),
+            new Emoji("7️⃣"),
+            new Emoji("8️⃣"),
+            new Emoji("9️⃣"),
+            new Emoji("🔟")
+        };
+
+            await ReplyAsync("ya Jicagacho caile cabron, no te cotices  <@707574953431793684>");
+            var img = await ReplyAsync("https://i.imgur.com/F4uHRss.png");
+            await img.AddReactionAsync(emote1);
+            await img.AddReactionAsync(emote);
+            await img.AddReactionAsync(emote2);
+            await img.AddReactionAsync(emote3);
+            await img.AddReactionsAsync(emotes);
+            const int delay = 5000;
+            var m = await this.ReplyAsync("te tardas un putero cabron");
+            await Task.Delay(delay);
+            await m.DeleteAsync();
         }
-        [Command("Odinpasalasfotos")]
-        [Summary(" - pides fotos al odin")]
+
+        [Command("nathan", RunMode = RunMode.Async)]
+        [Summary(" - saludas al compa nathan")]
         public async Task Reply_8()
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
             var emote1 = Emote.Parse("<:animal:787921991432798208>");
-            var peru = await ReplyAsync("No por chismoso peruano  " + emote);
-            await peru.AddReactionAsync(emote1);
-        }
-        [Command("jica")]
-        [Summary(" - saludas al compa jica ")]
-        public async Task Replys_9()
-        {
-            var emote = Emote.Parse("<:ke:759912866445918249>");
-            var emote1 = Emote.Parse("<:animal:787921991432798208>");
-            await ReplyAsync("ya deja la piedra ptm <@707574953431793684> " + emote);
-            var img = await ReplyAsync("https://imgur.com/gallery/ces1n1S");
+            await ReplyAsync("ya le dieron sus sartenazos a el <@391440280949227531>  ahorita despierta y le cae " + emote);
+            var img = await ReplyAsync("https://tenor.com/view/sarten-sartenazo-jennifer-lopez-jane-fonda-jane-gif-14399387");
             await img.AddReactionAsync(emote);
             await img.AddReactionAsync(emote1);
         }
-        [Command("pedo")]
+
+        [Command("chule", RunMode = RunMode.Async)]
+        [Summary(" - saludas a la Chule")]
+        public async Task Reply_9()
+        {
+            var emote = Emote.Parse("<:ke:759912866445918249>");
+            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+            await ReplyAsync("ya no te cotices deja los fetiches <@293150245720948736> y caile con la banda " + emote);
+            var img = await ReplyAsync("https://i.imgur.com/NNxDxWu.jpg");
+            await img.AddReactionAsync(emote);
+            await img.AddReactionAsync(emote1);
+        }
+
+        [Command("porky", RunMode = RunMode.Async)]
+        [Summary(" - saludas al porky")]
+        public async Task Reply_10()
+        {
+            var emote = Emote.Parse("<:ke:759912866445918249>");
+            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+            await ReplyAsync("bara bara bara se lo venimos ofreciendo al compa <@560169163553767435> " + emote);
+            var img = await ReplyAsync("https://i.imgur.com/69B9Elr.png");
+            await img.AddReactionAsync(emote);
+            await img.AddReactionAsync(emote1);
+        }
+        [Command("pedo", RunMode = RunMode.Async)]
         [RequireUserPermission(GuildPermission.Administrator)]
         [Summary(" - reafirmas superioridad comando + mencion (Admin) ")]
-        public async Task Reply_10(SocketGuildUser user = null)
+        public async Task Reply_11(SocketGuildUser user = null)
         {
             string mencion = user.Mention.ToString();
             var emote = Emote.Parse("<:ke:759912866445918249>");
@@ -219,7 +276,7 @@ namespace Animabot.Modulos
         public async Task Clean(int max)
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
-            if (max >= 10)
+            if (max >= 20)
             {
                 var end = await ReplyAsync(" na no se puede tanto usa purge !purge cantidad  ");
                 await end.AddReactionAsync(emote);
@@ -289,7 +346,7 @@ namespace Animabot.Modulos
             }
 
         }
-        [Command("kiko")]
+        [Command("kiko", RunMode = RunMode.Async)]
         [Summary(" - saludas al compa chavo")]
         [Alias("chavo", "xchavo", "tupac")]
         public async Task Reply_13()
@@ -386,7 +443,7 @@ namespace Animabot.Modulos
             await Task.Delay(2500);
             await message.DeleteAsync();
         }
-        [Command("info")]
+        [Command("info", RunMode = RunMode.Async)]
         [Summary(" - informacion de usuario u otro usuario comando + mencion")]
         [Alias("informacion", "inf")]
         public async Task Info(SocketGuildUser user = null)
@@ -426,7 +483,7 @@ namespace Animabot.Modulos
                 await eb.AddReactionAsync(emote);
             }
         }
-        [Command("server")]
+        [Command("server", RunMode = RunMode.Async)]
         [Summary(" - info del server")]
         public async Task Server()
         {
@@ -442,8 +499,8 @@ namespace Animabot.Modulos
                 .AddField("Creado en ", Context.Guild.CreatedAt.ToString("dd/MM/yyyy"), true)
                 .AddField("Usuarios totales", (Context.Guild as SocketGuild).MemberCount + " miembros", true)
                 .AddField("Usuarios Conectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Online).Count() + " usuarios", true)
-                .AddField("Invisibles", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Offline).Count() + " usuarios", true)
-                .AddField("Desconectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Invisible).Count() + " usuarios", true)
+                .AddField("Invisibles", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Invisible).Count() + " usuarios", true)
+                .AddField("Desconectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Offline).Count() + " usuarios", true)
                 .AddField("No molestar", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.DoNotDisturb).Count() + " usuarios", true);
 
 
@@ -562,7 +619,7 @@ namespace Animabot.Modulos
                 await ReplyAsync("http://gph.is/2AeGSGt");
             }
         }
-        [Command("unban")]
+        [Command("unban", RunMode = RunMode.Async)]
         [Summary(" - quitar ban usuario (mod) comando + id de usuario ")]
         [RequireUserPermission(GuildPermission.BanMembers, ErrorMessage = "No tienes el permiso ``unban_member``!")]
         public async Task UnBanMember(ulong id)
@@ -595,9 +652,10 @@ namespace Animabot.Modulos
             await logch.AddReactionAsync(emote);
 
         }
-        [Command("ban")]
+        [Command("ban", RunMode = RunMode.Async)]
         [RequireUserPermission(GuildPermission.BanMembers, ErrorMessage = "No tienes el permiso ``ban_member``!")]
         [Summary(" - ban a usuario (mod) comando + mencion ")]
+        [Alias("beta")]
         public async Task BanMember(IGuildUser user = null, [Remainder] string reason = null)
         {
             var emote = Emote.Parse("<:animal:787921991432798208>");
@@ -642,7 +700,7 @@ namespace Animabot.Modulos
             await logch.AddReactionAsync(emote);
 
         }
-        [Command("calcula")]
+        [Command("calcula", RunMode = RunMode.Async)]
         [Summary(" - operacion matematica por si estas bien mecates")]
         public async Task MathAsync([Remainder] string math)
         {

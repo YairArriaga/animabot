@@ -4,12 +4,11 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+//using Discord.S
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Collections.Generic;
 using Discord.Addons.Interactive;
-using System.Runtime.InteropServices;
-using Microsoft.Extensions.Hosting;
 
 namespace Animabot
 {
@@ -18,34 +17,34 @@ namespace Animabot
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
         public DiscordSocketClient _client;
-        //private CommandService _commands;
         public CommandService _commands;
         public IServiceProvider _services;
+        private readonly ulong patron = 806061482437509120;
+        //public SlashCommandService _commandss;
 
         public async Task RunBotAsync()
         {
-            Environment.GetEnvironmentVariable("PORT");
-
             _client = new DiscordSocketClient();
             _commands = new CommandService();
-
             _services = new ServiceCollection()
+
                 .AddSingleton(_client)
                 .AddSingleton(_commands)
                 .AddSingleton<InteractiveService>()
                 .BuildServiceProvider();
 
-           string token = "ODAxNzA4MDI4MTU5MDY2MTMy.YAkmyA.6f5wx5EKhOsRLL72OhUeMqeP7Yw";
+
+
+            string token = "";
 
             _client.Log += Client_Log;
             _client.UserJoined += UserJoined;
 
 
             await RegisterCommandsAsync();
-
             await _client.LoginAsync(TokenType.Bot, token);
-
             await _client.StartAsync();
+            await _client.SetActivityAsync(new Game("Aqui Chambeando", ActivityType.Playing));
 
             await Task.Delay(-1);
 
@@ -60,31 +59,33 @@ namespace Animabot
             }
             else
             {
-                var count =  gUser.Guild.GetUsersAsync();
-                var users = count.CountAsync();
+                //var count = gUser.Guild.GetUsersAsync();
+                //var users = count.CountAsync();
+
                 var dmChannel = await gUser.GetOrCreateDMChannelAsync();
-                Console.WriteLine(users);
-                await dmChannel.SendMessageAsync("Bienvenido a la banda tripeña");
-                //await (gUser.Guild.DefaultChannel).SendMessageAsync("Bienvenido al trip Batallas, solo pierdes si te callas " + gUser.Mention.ToString());
-                
+                await dmChannel.SendMessageAsync("Bienvenido al Trip caile al vc cuando haya banda, pa platicar");
+                var eb = new EmbedBuilder();
+                eb.AddField("Bienvenido a el Trip", "Saludaa toda la banda")
+                            .WithDescription(gUser.Mention.ToString() + "\n" + "** Eres el usuario **" + "**" + gUser.Guild.MemberCount + "**")
+                            .WithColor(Color.Blue)
+                            .WithCurrentTimestamp()
+                            .WithImageUrl(gUser.Guild.IconUrl);
+
+                await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
+
             }
         }
-
-        private readonly ulong patron = 625231385841369098;
-
         private Task Client_Log(LogMessage arg)
         {
             Console.WriteLine(arg);
             return Task.CompletedTask;
         }
-
         public async Task RegisterCommandsAsync()
         {
             _client.MessageReceived += HandleCommandAsync;
             await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
 
         }
-
         private async Task HandleCommandAsync(SocketMessage arg)
         {
             var message = arg as SocketUserMessage;
@@ -116,7 +117,13 @@ namespace Animabot
                         await context.Channel.DeleteMessageAsync(h);
                     }
                 }
+                else if (message.Content.Contains("Qvole mi Animaloco"))
+                {
 
+                    var emote = Emote.Parse("<:ke:759912866445918249>");
+                    var jefe = await message.Channel.SendMessageAsync("Qvole pinche Animaflow luego hay que aventar un cypher wey");
+                    await jefe.AddReactionAsync(emote);
+                }
                 else
                 {
                     return;
@@ -193,7 +200,7 @@ namespace Animabot
                     {
                         var random = new Random();
 
-                        var list = new List<string> { 
+                        var list = new List<string> {
                             "Estaba el otro dia, a un morro escuchando, que puro Mexico pa arriba y dije a pinche morro liandro, " +
                             "asi es como lo pensaste de mi compa el <@589976740332568587>  es de quien estoy hablado", "Estaba el" +
                             " otro dia viendo peticiones y pura japonesa un vato pedia por montones, dije a caray " +
@@ -206,7 +213,7 @@ namespace Animabot
 
                         var mensa = await message.Channel.SendMessageAsync(list[index]);
                         //var emote = Emote.Parse("<:ke:759912866445918249>");
-                        var emote1 = Emote.Parse("<:animal:787921991432798208>"); 
+                        var emote1 = Emote.Parse("<:animal:787921991432798208>");
                         await mensa.AddReactionAsync(emote1);
 
                     }
