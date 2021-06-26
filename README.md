@@ -1,2 +1,2 @@
 # animabot
-un Bon desarrolladopara el Trip por el animal 
+un Bot desarrollado para el Trip por el animal 
