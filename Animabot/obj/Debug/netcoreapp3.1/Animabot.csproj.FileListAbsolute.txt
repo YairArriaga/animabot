@@ -10,11 +10,14 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discor
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Rest.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Webhook.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.WebSocket.dll
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\fluxpoint-sharp.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Builder.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Builder.Dialogs.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Connector.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Schema.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Streaming.dll
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
@@ -25,6 +28,7 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Micros
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
@@ -43,7 +47,7 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Newton
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Linq.Async.dll
-C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csprojAssemblyReference.cache
+C:\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.Properties.Resources.resources
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.GenerateResource.cache
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfoInputs.cache
@@ -53,3 +57,69 @@ C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animab
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.dll
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.pdb
 C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.genruntimeconfig.cache
+C:\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csprojAssemblyReference.cache
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.exe
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.deps.json
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.runtimeconfig.json
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.runtimeconfig.dev.json
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Animabot.pdb
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Addons.Interactive.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Commands.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Core.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Rest.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.Webhook.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Discord.Net.WebSocket.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\fluxpoint-sharp.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Builder.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Builder.Dialogs.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Connector.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Schema.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Bot.Streaming.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Net.Http.Headers.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Recognizers.Definitions.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Recognizers.Text.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Recognizers.Text.Choice.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Recognizers.Text.DateTime.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Recognizers.Text.Number.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Recognizers.Text.NumberWithUnit.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Rest.ClientRuntime.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Linq.Async.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.AssemblyReference.cache
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.Properties.Resources.resources
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.GenerateResource.cache
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfoInputs.cache
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.AssemblyInfo.cs
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.CoreCompileInputs.cache
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.csproj.CopyComplete
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.pdb
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\obj\Debug\netcoreapp3.1\Animabot.genruntimeconfig.cache
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\respaldodputeado\Recovered data 07-11 20_17_53\Resultado de Escaneo Profundo\Partición Perdida1(NTFS)\Users\Knightowl\source\repos\Animabot\Animabot\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

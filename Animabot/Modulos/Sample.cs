@@ -2,32 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
+//using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Addons.Interactive;
 using Discord.Commands;
 using Discord.WebSocket;
-using Microsoft.Bot.Schema;
 using Newtonsoft.Json.Linq;
+using fluxpoint_sharp;
+//using System.IO;
+using System.Drawing;
 
 namespace Animabot.Modulos
 {
     [Name("Interactivo")]
     public class Sample : InteractiveBase
     {
-        //// DeleteAfterAsync will send a message and asynchronously delete it after the timeout has popped
-        //// This method will not block.
-        //[Command("delete", RunMode = RunMode.Async)]
-        //public async Task<RuntimeResult> Test_DeleteAfterAsync()
-        //{
-        //    var emote = Emote.Parse("<:animal:787921991432798208>");
-        //    var deleted = await ReplyAndDeleteAsync("this message will delete in 10 seconds", timeout: TimeSpan.FromSeconds(10));
-        //    await deleted.AddReactionAsync(emote);
-        //    return Ok();
-        //}
-
-
         [Command("pregunta", RunMode = RunMode.Async)]
         [Summary(" - Realizas una pregunta")]
         public async Task Test_NextMessageAsync()
@@ -56,7 +46,6 @@ namespace Animabot.Modulos
             }
 
         }
-
         [Command("consejo", RunMode = RunMode.Async)]
         [Summary(" - el maestro de Rodolfo te da un consejo aleatorio")]
         [Alias("advice")]
@@ -75,17 +64,6 @@ namespace Animabot.Modulos
             await consejo.AddReactionAsync(emote);
 
         }
-        //PagedReplyAsync will send a paginated message to the channel
-        //You can customize the paginator by creating a PaginatedMessage object
-        //You can customize the criteria for the paginator as well, which defaults to restricting to the source user
-        //This method will not block.
-        //[Command("paginator", RunMode = RunMode.Async)]
-        //public async Task Test_Paginator()
-        //{
-        //    var pages = new[] { "Page 1", "Page 2", "Page 3", "aaaaaa", "Page 5" };
-        //    await PagedReplyAsync(pages);
-        //}
-
         [Command("animo", RunMode = RunMode.Async)]
         [Summary(" - el  bot te da animo y un abrazo comando + mencion o solo")]
         [Alias("hug", "sad")]
@@ -199,9 +177,6 @@ namespace Animabot.Modulos
                 await piro.AddReactionAsync(emote1);
                 await ReplyAsync("https://imgur.com/BBjo5h8");
             }
-
-
-
         }
         [Command("covid", RunMode = RunMode.Async)]
         [Summary(" - informacion de covid sars-2 comando || comando + pais")]
@@ -241,7 +216,7 @@ namespace Animabot.Modulos
 
                 var builder = new EmbedBuilder()
 
-                         .WithColor(new Color(33, 176, 252))
+                         .WithColor(new Discord.Color(33, 176, 252))
                          .WithImageUrl("https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif")
                          .WithTitle("Informacion mundial de Covid -19")
                          .AddField(confirmados)
@@ -289,7 +264,7 @@ namespace Animabot.Modulos
 
                 var builder = new EmbedBuilder()
 
-                         .WithColor(new Color(33, 176, 252))
+                         .WithColor(new Discord.Color(33, 176, 252))
                          .WithImageUrl("https://media.giphy.com/media/MCAFTO4btHOaiNRO1k/giphy.gif")
                          .WithTitle($"Informacion de **{post["country"]}** sobre Covid -19")
                          .AddField(confirmados)
@@ -312,8 +287,6 @@ namespace Animabot.Modulos
         [Alias("wt")]
         public async Task Clima([Remainder] string ciudad = null)
         {
-
-            //String hourMinute = DateTime.Now.ToString("HH:mm");
 
             string buenas = " ";
             Int32 hora = DateTime.Now.Hour;
@@ -371,7 +344,7 @@ namespace Animabot.Modulos
                                    .WithIsInline(false);
                 var builder = new EmbedBuilder()
 
-                        .WithColor(new Color(33, 176, 252))
+                        .WithColor(new Discord.Color(33, 176, 252))
                         .WithImageUrl($"https://www.weatherbit.io/static/img/icons/{icon}.png")
                         .WithTitle($"Aquí tienes el clima de: **{cityname}**  **{pab}**")
                         .AddField(diap)
@@ -386,69 +359,185 @@ namespace Animabot.Modulos
 
             }
         }
+        [Command("listrole")]
+        [Summary(" - lista de Roles (admin)")]
+        [RequireUserPermission(GuildPermission.Administrator, ErrorMessage = "No la juegue usted no puede hacer este jale")]
+        public async Task ListRoleasync()
+        {
+
+            foreach (var role in Context.Guild.Roles)
+            {
+                await Context.Channel.SendMessageAsync(role.Name);
+                await Context.Channel.SendMessageAsync(role.Id.ToString());
+
+            }
+        }
+        [Command("spamstring", RunMode = RunMode.Async)]
+        [Summary(" - spamear commando + veces + link,frase o mencion")]
+        [Alias("sp", "spamming", "spam")]
+        [RequireUserPermission(GuildPermission.Administrator, ErrorMessage = "No la juegue usted no puede hacer este jale")]
+        public async Task Spamming(int times, [Remainder] string messsage)
+        {
+            var emote = Emote.Parse("<:ke:759912866445918249>");
+            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+
+            if (times > 10)
+            {
+                await Context.Message.DeleteAsync();
+
+                var notanto = await ReplyAsync(Context.User.Mention + " no te pases de 10 pa que tanto * :eggplant:");
+                await notanto.AddReactionAsync(emote);
+            }
+            else
+            {
+                await Context.Message.DeleteAsync();
+                var result = await ReplyAsync("Escogiste espamear " + times + " veces esta informacion que cura");
+                await result.AddReactionAsync(emote);
+
+                if (messsage.ToString() == "@everyone")
+                {
+                    var beta = await ReplyAsync("No lo haga compa quiere Beta o que ?");
+                    await beta.AddReactionAsync(emote);
+                }
+                else
+                {
+                    await Context.Channel.SendMessageAsync("    :fire: *SPAMMING* :fire: ");
+
+                    //spam loop
+                    for (int i = 0; i < times; i++)
+                    {
+                        await Context.Channel.SendMessageAsync(messsage);
+                        System.Threading.Thread.Sleep(500);
+                    }
+                    await Context.Channel.SendMessageAsync("Chequenlo banda esta chingon @everyone");
+                    var anim = await Context.Channel.SendMessageAsync("http://gph.is/2hTx1er");
+                    await anim.AddReactionAsync(emote1);
+                }
+            }
+        }
+        [Command("purge", RunMode = RunMode.Async)]
+        [Summary(" - borrar mensajes comando + numero (mod)")]
+        [Alias("del", "purgar")]
+        [RequireUserPermission(GuildPermission.ManageMessages, ErrorMessage = "No la juegue usted no puede hacer este jale")]
+        public async Task Purge(int amount)
+        {
+            var messages = await Context.Channel.GetMessagesAsync(amount + 1).FlattenAsync();
+            await (Context.Channel as SocketTextChannel).DeleteMessagesAsync(messages);
+
+            var message = await Context.Channel.SendMessageAsync($"{messages.Count()} mensajes borrados satisfactoriamente!");
+            await Task.Delay(2500);
+            await message.DeleteAsync();
+        }
+        [Command("info", RunMode = RunMode.Async)]
+        [Summary(" - informacion de usuario u otro usuario comando + mencion")]
+        [Alias("informacion", "inf")]
+        public async Task Info(SocketGuildUser user = null)
+        {
+            var emote = Emote.Parse("<:animal:787921991432798208>");
+            string usna = Context.User.Mention.ToString();
+            if (user == null)
+            {
+                var builder = new EmbedBuilder()
+                    .WithThumbnailUrl(Context.User.GetAvatarUrl() ?? Context.User.GetDefaultAvatarUrl())
+                    .WithDescription($"Aqui encuentras informacion  de {Context.User.Username} ")
+                    .WithColor(new Discord.Color(33, 176, 252))
+                    .AddField("ID de usuario", Context.User.Id, true)
+                    .AddField("Cuando Creaste tu cuenta", Context.User.CreatedAt.ToString("dd/MM/yyyy"), true)
+                    .AddField("Cuando te uniste al Servidor", (Context.User as SocketGuildUser).JoinedAt.Value.ToString("dd/MM/yyyy"), true)
+                    .AddField("Roles", string.Join(" ", (Context.User as SocketGuildUser).Roles.Select(x => x.Mention)))
+                    .WithCurrentTimestamp();
+                var embed = builder.Build();
+                var eb = await Context.Channel.SendMessageAsync(null, false, embed);
+                await eb.AddReactionAsync(emote);
+            }
+            else
+            {
+                Console.WriteLine(user);
+                Console.WriteLine(usna);
+                var builder = new EmbedBuilder()
+                    .WithThumbnailUrl(user.GetAvatarUrl() ?? user.GetDefaultAvatarUrl())
+                    .WithDescription($"Aqui encuentras informacion de {user.Username} ")
+                    .WithColor(new Discord.Color(33, 176, 252))
+                    .AddField("User ID", user.Id, true)
+                    .AddField("Cuando Creaste tu cuenta", user.CreatedAt.ToString("dd/MM/yyyy"), true)
+                    .AddField("Cuando te uniste al servidor", user.JoinedAt.Value.ToString("dd/MM/yyyy"), true)
+                    .AddField("Roles", string.Join(" ", user.Roles.Select(x => x.Mention)))
+                    .WithCurrentTimestamp();
+                var embed = builder.Build();
+                var eb = await Context.Channel.SendMessageAsync(null, false, embed);
+                await eb.AddReactionAsync(emote);
+            }
+        }
+        [Command("server", RunMode = RunMode.Async)]
+        [Summary(" - info del server")]
+        public async Task Server()
+        {
+            var emote = Emote.Parse("<:animal:787921991432798208>");
+
+            var nombre = Context.Guild.Name;
+            string no = nombre.ToString().ToUpper();
+            var builder = new EmbedBuilder()
+                .WithThumbnailUrl(Context.Guild.IconUrl)
+                .WithDescription("Informacion del Servidor.")
+                .WithTitle(no + " BATALLAS")
+                .WithColor(new Discord.Color(33, 176, 252))
+                .AddField("Creado en ", Context.Guild.CreatedAt.ToString("dd/MM/yyyy"), true)
+                .AddField("Usuarios totales", (Context.Guild as SocketGuild).MemberCount + " miembros", true)
+                .AddField("Usuarios Conectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Online).Count() + " usuarios", true)
+                .AddField("Invisibles", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Invisible).Count() + " usuarios", true)
+                .AddField("Desconectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Offline).Count() + " usuarios", true)
+                .AddField("No molestar", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.DoNotDisturb).Count() + " usuarios", true);
+
+
+            var embed = builder.Build();
+            var serv = await Context.Channel.SendMessageAsync(null, false, embed);
+            await serv.AddReactionAsync(emote);
+        }
+
+        [Command("test", RunMode = RunMode.Async)]
+        public async Task Pimg()
+        {
+            FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
+            ImageGenEndpoints fluxp = new ImageGenEndpoints(client);
+            string cntPath = System.IO.Directory.GetCurrentDirectory();
+
+            //var imgp = await fluxp.GetIconsList();
+
+            //await ReplyAsync(imgp.ToString());
+
+            //var bp = await fluxp.GetBannersList();
+            //await ReplyAsync(bp.ToString());
+
+            WelcomeTemplates user = new WelcomeTemplates();
+            var numero = (Context.Guild as SocketGuild).MemberCount;
+            user.username = Context.User.Username;
+            user.avatar= Context.User.GetAvatarUrl();
+            user.background = "#aaaaaa";
+            user.members = "Eres el miembro #"+numero.ToString();
+            user.icon = "chika";
+            user.banner = "wave";
+            user.color_welcome = "White";
+            user.color_username = "white";
+            user.color_members = "white";
+            var im2 = await fluxp.GetWelcomeImage(user);
+
+            System.Drawing.Image x = (Bitmap)((new ImageConverter()).ConvertFrom(im2.bytes));
+            try
+            {
+                x.Save(cntPath+"/img/banner.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e);
+            }
+   
+            await Context.Channel.SendFileAsync(cntPath + "/img/banner.jpg", $"Bienvenido { Context.User.Mention}");
 
 
 
-        //[Command("bot", RunMode = RunMode.Async)]
+        }
 
-        //[Summary("Hablas con el bot")]
-        //public async Task Talk()
-        //{
-        //    #region  //await ReplyAsync("Qvole como estas?");
-
-        //    //var response = await NextMessageAsync();
-        //    //if (response != null) { 
-        //    //Bot myBot = new Bot();
-        //    //myBot.loadSettings();
-        //    //var usuario = Context.User.Mention;
-        //    //User myUser = new User(usuario, myBot);
-        //    //myBot.isAcceptingUserInput = false;
-        //    //myBot.loadAIMLFromFiles();
-        //    //myBot.isAcceptingUserInput = true;
-
-        //    //    while (true)
-        //    //    {
-        //    //        //Console.Write("You: ");
-        //    //        //string input = Console.ReadLine();
-        //    //        string input = response.Content.ToString();
-        //    //        if (input.Equals("quit"))
-        //    //        {
-        //    //            break;
-        //    //        }
-        //    //        else
-        //    //        {
-        //    //            string respuesta = input.ToString();
-        //    //            Request r = new Request(respuesta, myUser, myBot);
-        //    //            Result res = myBot.Chat(r);
-        //    //            var salida = res.Output;
-        //    //            await ReplyAsync(salida);
-        //    //        }
-        //    //    }
-        //    //}
-
-        //    //Bot myBot = new Bot();
-        //    //myBot.loadSettings();
-        //    //User myUser = new User("consoleUser", myBot);
-        //    //myBot.isAcceptingUserInput = false;
-        //    //myBot.loadAIMLFromFiles();
-        //    //myBot.isAcceptingUserInput = true;
-        //    //while (true)
-        //    //{
-        //    //    Console.Write("You: ");
-        //    //    string input = Console.ReadLine();
-        //    //    if (input.ToLower() == "quit")
-        //    //    {
-        //    //        break;
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        Request r = new Request(input, myUser, myBot);
-        //    //        Result res = myBot.Chat(r);
-        //    //        Console.WriteLine("Bot: " + res.Output);
-        //    //    }
-        //    //}
-        //    #endregion //inutilizado
-
-        //}
     }
 }

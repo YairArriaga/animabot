@@ -9,11 +9,14 @@ C:\Users\Knightowl\Desktop\botlinux\Discord.Net.Core.dll
 C:\Users\Knightowl\Desktop\botlinux\Discord.Net.Rest.dll
 C:\Users\Knightowl\Desktop\botlinux\Discord.Net.Webhook.dll
 C:\Users\Knightowl\Desktop\botlinux\Discord.Net.WebSocket.dll
+C:\Users\Knightowl\Desktop\botlinux\fluxpoint-sharp.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Bot.Builder.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Bot.Builder.Dialogs.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Bot.Connector.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Bot.Schema.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Bot.Streaming.dll
+C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Configuration.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Configuration.Binder.dll
@@ -24,6 +27,7 @@ C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Logging.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Options.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.Extensions.Primitives.dll
+C:\Users\Knightowl\Desktop\botlinux\Microsoft.Identity.Client.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Knightowl\Desktop\botlinux\Microsoft.IdentityModel.Logging.dll
@@ -42,3 +46,4 @@ C:\Users\Knightowl\Desktop\botlinux\Newtonsoft.Json.dll
 C:\Users\Knightowl\Desktop\botlinux\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Knightowl\Desktop\botlinux\System.Interactive.Async.dll
 C:\Users\Knightowl\Desktop\botlinux\System.Linq.Async.dll
+C:\Users\Knightowl\Desktop\botlinux\System.Runtime.CompilerServices.Unsafe.dll

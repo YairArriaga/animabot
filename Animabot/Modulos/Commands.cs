@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using System.Data;
-using System.Collections.Generic;
+using fluxpoint_sharp;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Animabot.Modulos
 {
     [Name("Comandos")]
     public class Commands : ModuleBase<SocketCommandContext>
     {
-
         [Command("banda", RunMode = RunMode.Async)]
         [Summary(" - convocas a toda la banda")]
         public async Task Reply_1()
@@ -22,20 +23,20 @@ namespace Animabot.Modulos
 
             await ReplyAsync("la banda es culera se cotiza @everyone caiganle  :eyes:");
             await ReplyAsync("http://gph.is/28OHhlE");
-            await Context.Guild.DownloadUsersAsync(); //make sure we have each guild user 
-            foreach (var user in Context.Guild.Users)
-            {
-                try
-                {
-                    var channel = await user.GetOrCreateDMChannelAsync();
-                    //await channel.SendMessageAsync("Caiganle, porque se su mayor secreto y lo revelare... \n bueno no cierto caile a cotorrear");
-                }
-                catch (Exception e)
-                {
+            //await Context.Guild.DownloadUsersAsync(); //make sure we have each guild user 
+            //foreach (var user in Context.Guild.Users)
+            //{
+            //    try
+            //    {
+            //        var channel = await user.GetOrCreateDMChannelAsync();
+            //        //await channel.SendMessageAsync("Caiganle, porque se su mayor secreto y lo revelare... \n bueno no cierto caile a cotorrear");
+            //    }
+            //    catch (Exception e)
+            //    {
 
-                    Console.WriteLine(e);
-                } //Error
-            }
+            //        Console.WriteLine(e);
+            //    } //Error
+            //}
         }
         #region
         //[Command("pollo", RunMode = RunMode.Async)]
@@ -75,16 +76,16 @@ namespace Animabot.Modulos
         }
         [Command("Mestizo", RunMode = RunMode.Async)]
         [Alias("sordix")]
-        [Summary(" - saludas al compa Sordix(mestizo)")]
+        [Summary(" - saludas al compa Sordix")]
         public async Task Reply_3()
         {
             var emote = Emote.Parse("<:yo:777438723818258452>");
             var emote1 = Emote.Parse("<:flag_mestizo:784656943389343744>");
             var emote2 = Emote.Parse("<:animal:787921991432798208>");
-  
+
             await ReplyAsync("Caile pinche mestizo antes de que te caiga la ley <@589976740332568587>");
             var mes = await ReplyAsync("https://imgur.com/gallery/4tqrPQy");
-        
+
             await mes.AddReactionAsync(emote);
             await mes.AddReactionAsync(emote1);
             await mes.AddReactionAsync(emote2);
@@ -171,7 +172,7 @@ namespace Animabot.Modulos
         }
 
         [Command("nathan", RunMode = RunMode.Async)]
-        [Summary(" - saludas al compa nathan")]
+        [Summary(" - saludas al compa Nathan")]
         public async Task Reply_8()
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
@@ -195,7 +196,7 @@ namespace Animabot.Modulos
         }
 
         [Command("porky", RunMode = RunMode.Async)]
-        [Summary(" - saludas al porky")]
+        [Summary(" - saludas al Porky")]
         public async Task Reply_10()
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
@@ -207,7 +208,7 @@ namespace Animabot.Modulos
         }
         [Command("pedo", RunMode = RunMode.Async)]
         [RequireUserPermission(GuildPermission.Administrator)]
-        [Summary(" - reafirmas superioridad comando + mencion (Admin) ")]
+        [Summary(" - reafirmas superioridad comando + mencion (Admin)")]
         public async Task Reply_11(SocketGuildUser user = null)
         {
             string mencion = user.Mention.ToString();
@@ -295,7 +296,7 @@ namespace Animabot.Modulos
         }
         [Command("tia", RunMode = RunMode.Async)]
         [Alias("marrana", "auntie", "aunt", "aunty")]
-        [Summary(" - presumes a tu tia (nsfw) ")]
+        [Summary(" - presumes a tu tia (nsfw)")]
         public async Task Replys_12()
         {
             //string elurl = Test();
@@ -375,142 +376,148 @@ namespace Animabot.Modulos
         //    return randomizedList;
         //}
         #endregion
-        [Command("listrole")]
-        [Summary(" - lista de Roles (admin)")]
-        [RequireUserPermission(GuildPermission.ManageMessages, ErrorMessage = "No la juegue usted no puede hacer este jale")]
-        public async Task ListRoleasync()
-        {
+        #region
+        //[Command("listrole")]
+        //[Summary(" - lista de Roles (admin)")]
+        //[RequireUserPermission(GuildPermission.ManageMessages, ErrorMessage = "No la juegue usted no puede hacer este jale")]
+        //public async Task ListRoleasync()
+        //{
 
-            foreach (var role in Context.Guild.Roles)
-            {
-                await Context.Channel.SendMessageAsync(role.Name);
-                await Context.Channel.SendMessageAsync(role.Id.ToString());
+        //    foreach (var role in Context.Guild.Roles)
+        //    {
+        //        await Context.Channel.SendMessageAsync(role.Name);
+        //        await Context.Channel.SendMessageAsync(role.Id.ToString());
 
-            }
-        }
-        [Command("spamstring", RunMode = RunMode.Async)]
-        [Summary(" - spamear commando + veces + link,frase o mencion")]
-        [Alias("sp", "spamming", "spam")]
-        public async Task Spamming(int times, [Remainder] string messsage)
-        {
-            var emote = Emote.Parse("<:ke:759912866445918249>");
-            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+        //    }
+        //}
+        //[Command("spamstring", RunMode = RunMode.Async)]
+        //[Summary(" - spamear commando + veces + link,frase o mencion")]
+        //[Alias("sp", "spamming", "spam")]
+        //public async Task Spamming(int times, [Remainder] string messsage)
+        //{
+        //    var emote = Emote.Parse("<:ke:759912866445918249>");
+        //    var emote1 = Emote.Parse("<:animal:787921991432798208>");
 
-            if (times > 10)
-            {
-                await Context.Message.DeleteAsync();
+        //    if (times > 10)
+        //    {
+        //        await Context.Message.DeleteAsync();
 
-                var notanto = await ReplyAsync(Context.User.Mention + " no te pases de 10 pa que tanto * :eggplant:");
-                await notanto.AddReactionAsync(emote);
-            }
-            else
-            {
-                await Context.Message.DeleteAsync();
-                var result = await ReplyAsync("Escogiste espamear " + times + " veces esta informacion que cura");
-                await result.AddReactionAsync(emote);
+        //        var notanto = await ReplyAsync(Context.User.Mention + " no te pases de 10 pa que tanto * :eggplant:");
+        //        await notanto.AddReactionAsync(emote);
+        //    }
+        //    else
+        //    {
+        //        await Context.Message.DeleteAsync();
+        //        var result = await ReplyAsync("Escogiste espamear " + times + " veces esta informacion que cura");
+        //        await result.AddReactionAsync(emote);
 
-                if (messsage.ToString() == "@everyone")
-                {
-                    var beta = await ReplyAsync("No lo haga compa quiere Beta o que ?");
-                    await beta.AddReactionAsync(emote);
-                }
-                else
-                {
-                    await Context.Channel.SendMessageAsync("    :fire: *SPAMMING* :fire: ");
+        //        if (messsage.ToString() == "@everyone")
+        //        {
+        //            var beta = await ReplyAsync("No lo haga compa quiere Beta o que ?");
+        //            await beta.AddReactionAsync(emote);
+        //        }
+        //        else
+        //        {
+        //            await Context.Channel.SendMessageAsync("    :fire: *SPAMMING* :fire: ");
 
-                    //spam loop
-                    for (int i = 0; i < times; i++)
-                    {
-                        await Context.Channel.SendMessageAsync(messsage);
-                        System.Threading.Thread.Sleep(500);
-                    }
-                    await Context.Channel.SendMessageAsync("Chequenlo banda esta chingon @everyone");
-                    var anim = await Context.Channel.SendMessageAsync("http://gph.is/2hTx1er");
-                    await anim.AddReactionAsync(emote1);
-                }
-            }
-        }
-        [Command("purge", RunMode = RunMode.Async)]
-        [Summary(" - borrar mensajes comando + numero (mod) ")]
-        [Alias("del", "purgar")]
-        [RequireUserPermission(GuildPermission.ManageMessages, ErrorMessage = "No la juegue usted no puede hacer este jale")]
-        public async Task Purge(int amount)
-        {
-            var messages = await Context.Channel.GetMessagesAsync(amount + 1).FlattenAsync();
-            await (Context.Channel as SocketTextChannel).DeleteMessagesAsync(messages);
+        //            //spam loop
+        //            for (int i = 0; i < times; i++)
+        //            {
+        //                await Context.Channel.SendMessageAsync(messsage);
+        //                System.Threading.Thread.Sleep(500);
+        //            }
+        //            await Context.Channel.SendMessageAsync("Chequenlo banda esta chingon @everyone");
+        //            var anim = await Context.Channel.SendMessageAsync("http://gph.is/2hTx1er");
+        //            await anim.AddReactionAsync(emote1);
+        //        }
+        //    }
+        //}
+        //[Command("purge", RunMode = RunMode.Async)]
+        //[Summary(" - borrar mensajes comando + numero (mod)")]
+        //[Alias("del", "purgar")]
+        //[RequireUserPermission(GuildPermission.ManageMessages, ErrorMessage = "No la juegue usted no puede hacer este jale")]
+        //public async Task Purge(int amount)
+        //{
+        //    var messages = await Context.Channel.GetMessagesAsync(amount + 1).FlattenAsync();
+        //    await (Context.Channel as SocketTextChannel).DeleteMessagesAsync(messages);
 
-            var message = await Context.Channel.SendMessageAsync($"{messages.Count()} mensajes borrados satisfactoriamente!");
-            await Task.Delay(2500);
-            await message.DeleteAsync();
-        }
-        [Command("info", RunMode = RunMode.Async)]
-        [Summary(" - informacion de usuario u otro usuario comando + mencion")]
-        [Alias("informacion", "inf")]
-        public async Task Info(SocketGuildUser user = null)
-        {
-            var emote = Emote.Parse("<:animal:787921991432798208>");
-            string usna = Context.User.Mention.ToString();
-            if (user == null)
-            {
-                var builder = new EmbedBuilder()
-                    .WithThumbnailUrl(Context.User.GetAvatarUrl() ?? Context.User.GetDefaultAvatarUrl())
-                    .WithDescription($"Aqui encuentras informacion  de {Context.User.Username} ")
-                    .WithColor(new Color(33, 176, 252))
-                    .AddField("ID de usuario", Context.User.Id, true)
-                    .AddField("Cuando Creaste tu cuenta", Context.User.CreatedAt.ToString("dd/MM/yyyy"), true)
-                    .AddField("Cuando te uniste al Servidor", (Context.User as SocketGuildUser).JoinedAt.Value.ToString("dd/MM/yyyy"), true)
-                    .AddField("Roles", string.Join(" ", (Context.User as SocketGuildUser).Roles.Select(x => x.Mention)))
-                    .WithCurrentTimestamp();
-                var embed = builder.Build();
-                var eb = await Context.Channel.SendMessageAsync(null, false, embed);
-                await eb.AddReactionAsync(emote);
-            }
-            else
-            {
-                Console.WriteLine(user);
-                Console.WriteLine(usna);
-                var builder = new EmbedBuilder()
-                    .WithThumbnailUrl(user.GetAvatarUrl() ?? user.GetDefaultAvatarUrl())
-                    .WithDescription($"Aqui encuentras informacion de {user.Username} ")
-                    .WithColor(new Color(33, 176, 252))
-                    .AddField("User ID", user.Id, true)
-                    .AddField("Cuando Creaste tu cuenta", user.CreatedAt.ToString("dd/MM/yyyy"), true)
-                    .AddField("Cuando te uniste al servidor", user.JoinedAt.Value.ToString("dd/MM/yyyy"), true)
-                    .AddField("Roles", string.Join(" ", user.Roles.Select(x => x.Mention)))
-                    .WithCurrentTimestamp();
-                var embed = builder.Build();
-                var eb = await Context.Channel.SendMessageAsync(null, false, embed);
-                await eb.AddReactionAsync(emote);
-            }
-        }
-        [Command("server", RunMode = RunMode.Async)]
-        [Summary(" - info del server")]
-        public async Task Server()
-        {
-            var emote = Emote.Parse("<:animal:787921991432798208>");
+        //    var message = await Context.Channel.SendMessageAsync($"{messages.Count()} mensajes borrados satisfactoriamente!");
+        //    await Task.Delay(2500);
+        //    await message.DeleteAsync();
+        //}
+        //[Command("info", RunMode = RunMode.Async)]
+        //[Summary(" - informacion de usuario u otro usuario comando + mencion")]
+        //[Alias("informacion", "inf")]
+        //public async Task Info(SocketGuildUser user = null)
+        //{
+        //    var emote = Emote.Parse("<:animal:787921991432798208>");
+        //    string usna = Context.User.Mention.ToString();
+        //    if (user == null)
+        //    {
+        //        var builder = new EmbedBuilder()
+        //            .WithThumbnailUrl(Context.User.GetAvatarUrl() ?? Context.User.GetDefaultAvatarUrl())
+        //            .WithDescription($"Aqui encuentras informacion  de {Context.User.Username} ")
+        //            .WithColor(new Color(33, 176, 252))
+        //            .AddField("ID de usuario", Context.User.Id, true)
+        //            .AddField("Cuando Creaste tu cuenta", Context.User.CreatedAt.ToString("dd/MM/yyyy"), true)
+        //            .AddField("Cuando te uniste al Servidor", (Context.User as SocketGuildUser).JoinedAt.Value.ToString("dd/MM/yyyy"), true)
+        //            .AddField("Roles", string.Join(" ", (Context.User as SocketGuildUser).Roles.Select(x => x.Mention)))
+        //            .WithCurrentTimestamp();
+        //        var embed = builder.Build();
+        //        var eb = await Context.Channel.SendMessageAsync(null, false, embed);
+        //        await eb.AddReactionAsync(emote);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(user);
+        //        Console.WriteLine(usna);
+        //        var builder = new EmbedBuilder()
+        //            .WithThumbnailUrl(user.GetAvatarUrl() ?? user.GetDefaultAvatarUrl())
+        //            .WithDescription($"Aqui encuentras informacion de {user.Username} ")
+        //            .WithColor(new Color(33, 176, 252))
+        //            .AddField("User ID", user.Id, true)
+        //            .AddField("Cuando Creaste tu cuenta", user.CreatedAt.ToString("dd/MM/yyyy"), true)
+        //            .AddField("Cuando te uniste al servidor", user.JoinedAt.Value.ToString("dd/MM/yyyy"), true)
+        //            .AddField("Roles", string.Join(" ", user.Roles.Select(x => x.Mention)))
+        //            .WithCurrentTimestamp();
+        //        var embed = builder.Build();
+        //        var eb = await Context.Channel.SendMessageAsync(null, false, embed);
+        //        await eb.AddReactionAsync(emote);
+        //    }
+        //}
+        //[Command("server", RunMode = RunMode.Async)]
+        //[Summary(" - info del server")]
+        //public async Task Server()
+        //{
+        //    var emote = Emote.Parse("<:animal:787921991432798208>");
 
-            var nombre = Context.Guild.Name;
-            string no = nombre.ToString().ToUpper();
-            var builder = new EmbedBuilder()
-                .WithThumbnailUrl(Context.Guild.IconUrl)
-                .WithDescription("Informacion del Servidor.")
-                .WithTitle(no + " BATALLAS")
-                .WithColor(new Color(33, 176, 252))
-                .AddField("Creado en ", Context.Guild.CreatedAt.ToString("dd/MM/yyyy"), true)
-                .AddField("Usuarios totales", (Context.Guild as SocketGuild).MemberCount + " miembros", true)
-                .AddField("Usuarios Conectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Online).Count() + " usuarios", true)
-                .AddField("Invisibles", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Invisible).Count() + " usuarios", true)
-                .AddField("Desconectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Offline).Count() + " usuarios", true)
-                .AddField("No molestar", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.DoNotDisturb).Count() + " usuarios", true);
+        //    var nombre = Context.Guild.Name;
+        //    string no = nombre.ToString().ToUpper();
+        //    var builder = new EmbedBuilder()
+        //        .WithThumbnailUrl(Context.Guild.IconUrl)
+        //        .WithDescription("Informacion del Servidor.")
+        //        .WithTitle(no + " BATALLAS")
+        //        .WithColor(new Color(33, 176, 252))
+        //        .AddField("Creado en ", Context.Guild.CreatedAt.ToString("dd/MM/yyyy"), true)
+        //        .AddField("Usuarios totales", (Context.Guild as SocketGuild).MemberCount + " miembros", true)
+        //        .AddField("Usuarios Conectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Online).Count() + " usuarios", true)
+        //        .AddField("Invisibles", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Invisible).Count() + " usuarios", true)
+        //        .AddField("Desconectados", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.Offline).Count() + " usuarios", true)
+        //        .AddField("No molestar", (Context.Guild as SocketGuild).Users.Where(x => x.Status == UserStatus.DoNotDisturb).Count() + " usuarios", true);
 
 
-            var embed = builder.Build();
-            var serv = await Context.Channel.SendMessageAsync(null, false, embed);
-            await serv.AddReactionAsync(emote);
-        }
+        //    var embed = builder.Build();
+        //    var serv = await Context.Channel.SendMessageAsync(null, false, embed);
+        //    await serv.AddReactionAsync(emote);
+        //}
+        //[Command("meme", RunMode = RunMode.Async)]
+        //[Summary(" - buscar subbredit comando + subreddit")]
+        //[Alias("rmeme")]
+        #endregion
+
         [Command("meme", RunMode = RunMode.Async)]
-        [Summary(" - buscar subbredit comando + subreddit")]
-        [Alias("rmeme")]
+        [Summary(" - buscar meme comando + subreddit")]
+        [Alias("rmm")]
         public async Task Meme(string subreddit = null)
         {
             var emote = Emote.Parse("<:animal:787921991432798208>");
@@ -718,8 +725,111 @@ namespace Animabot.Modulos
 
 
         }
+
+        [Command("azur", RunMode = RunMode.Async)]
+        [Summary(" -  (nsfw) imagenes de Azur lane")]
+        [Alias("fp")]
+        public async Task Fluxp(string subreddit = null)
+        {
+            FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
+            GalleryNsfwEndpoints fluxp = new GalleryNsfwEndpoints(client);
+
+            var emote = Emote.Parse("<a:chaqueta90:784649801332948993>");
+            ulong canalito = 771574670356774973;
+            //ulong canalito = 755680999823638601;
+            if (Context.Channel.Id == canalito)
+            {
+
+                var prueba = await fluxp.GetAzurlane();
+                await ReplyAsync(prueba.file);
+            }
+            else
+            {
+                var emote1 = Emote.Parse("<a:1_:800886172724887593>");
+                var mensaje = await ReplyAsync("Aqui no es, vamos con los marranotes" + MentionUtils.MentionChannel(canalito));
+                await mensaje.AddReactionAsync(emote1);
+                await ReplyAsync("http://gph.is/2AeGSGt");
+            }
+        }
+        [Command("nekopara", RunMode = RunMode.Async)]
+        [Summary(" -  (nsfw) imagenes de Nekopara")]
+        [Alias("neko")]
+        public async Task Fluxp1(string subreddit = null)
+        {
+            FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
+            GalleryNsfwEndpoints fluxp = new GalleryNsfwEndpoints(client);
+
+            var emote = Emote.Parse("<a:chaqueta90:784649801332948993>");
+            ulong canalito = 771574670356774973;
+            //ulong canalito = 755680999823638601;
+            if (Context.Channel.Id == canalito)
+            {
+
+                var prueba = await fluxp.GetNekopara();
+                await ReplyAsync(prueba.file);
+            }
+            else
+            {
+                var emote1 = Emote.Parse("<a:1_:800886172724887593>");
+                var mensaje = await ReplyAsync("Aqui no es, vamos con los marranotes" + MentionUtils.MentionChannel(canalito));
+                await mensaje.AddReactionAsync(emote1);
+                await ReplyAsync("http://gph.is/2AeGSGt");
+            }
+        }
+        [Command("lewd", RunMode = RunMode.Async)]
+        [Summary(" -  (nsfw) imagenes lewd")]
+        [Alias("ld")]
+        public async Task Fluxp2(string subreddit = null)
+        {
+            FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
+            GalleryNsfwEndpoints fluxp = new GalleryNsfwEndpoints(client);
+
+            var emote = Emote.Parse("<a:chaqueta90:784649801332948993>");
+            ulong canalito = 771574670356774973;
+            //ulong canalito = 755680999823638601;
+            if (Context.Channel.Id == canalito)
+            {
+
+                var prueba = await fluxp.GetLewd();
+                await ReplyAsync(prueba.file);
+            }
+            else
+            {
+                var emote1 = Emote.Parse("<a:1_:800886172724887593>");
+                var mensaje = await ReplyAsync("Aqui no es, vamos con los marranotes" + MentionUtils.MentionChannel(canalito));
+                await mensaje.AddReactionAsync(emote1);
+                await ReplyAsync("http://gph.is/2AeGSGt");
+            }
+        }
+        [Command("podcast", RunMode = RunMode.Async)]
+        [Summary(" - Lista de Episodios de Podcast")]
+        [Alias("pdt")]
+        public async Task Podcast()
+        {
+            var emote1 = Emote.Parse("<:animal:787921991432798208>");
+            string url = "https://anchor.fm/s/5ba4c7c4/podcast/rss";
+            var client = new HttpClient();
+            string xml = client.GetStringAsync(url).Result;
+            var result = XDocument.Parse(xml);
+            var results = result.Root
+                       .Descendants("item")
+                       .Descendants()
+                       .Where(element => element.Name == "Description" ||
+                                         element.Name == "link")
+                       .Select(element => element.Value).ToList();
+
+            var pr = await ReplyAsync("**Checate todos los Episodios  de nuestro podcast @everyone**");
+            await pr.AddReactionAsync(emote1);
+            foreach (object p in results)
+            {
+                var ep = await ReplyAsync(p.ToString());
+                await ep.AddReactionAsync(emote1);
+            }
+
+            await ReplyAsync("https://imgur.com/gallery/0PMdV9z");
+
+        }
     }
 }
-
 
 

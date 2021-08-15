@@ -14,10 +14,8 @@ namespace Animabot.Modulos
 
         public Help(CommandService service)
         {
-            //Global.ConsoleLog("Started HelpHandler", ConsoleColor.Blue);
 
             _service = service;
-            //return;
         }
 
         [Command("help")]
@@ -49,6 +47,7 @@ namespace Animabot.Modulos
 
                         x.Name = module.Name;
                         x.Value = description;
+                        
                         x.IsInline = false;
 
                     });

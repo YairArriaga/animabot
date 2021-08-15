@@ -4,11 +4,12 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-//using Discord.S
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Collections.Generic;
 using Discord.Addons.Interactive;
+using fluxpoint_sharp;
+using System.Drawing;
 
 namespace Animabot
 {
@@ -20,7 +21,6 @@ namespace Animabot
         public CommandService _commands;
         public IServiceProvider _services;
         private readonly ulong patron = 806061482437509120;
-        //public SlashCommandService _commandss;
 
         public async Task RunBotAsync()
         {
@@ -35,11 +35,12 @@ namespace Animabot
 
 
 
-            string token = "";
+            string token = "ODMzMjI5NzMxNzYzNzE2MDk2.YHvTqA.mX1udZnZdTbZE-t0nUFyM5E6OGM";
+
 
             _client.Log += Client_Log;
             _client.UserJoined += UserJoined;
-
+            _client.UserLeft += UserLeft;
 
             await RegisterCommandsAsync();
             await _client.LoginAsync(TokenType.Bot, token);
@@ -50,31 +51,99 @@ namespace Animabot
 
 
         }
-
+       
+            
+        
         private async Task UserJoined(SocketGuildUser gUser)
         {
+            var channel = _client.GetChannel(862650878360158219) as IVoiceChannel;
+            await channel.ModifyAsync(prop => prop.Name = $"👥 Miembros totales: {(gUser.Guild as SocketGuild).MemberCount}");
+
+
             if (gUser.IsBot || gUser.IsWebhook)
             {
                 return;
             }
             else
             {
-                //var count = gUser.Guild.GetUsersAsync();
-                //var users = count.CountAsync();
+
 
                 var dmChannel = await gUser.GetOrCreateDMChannelAsync();
                 await dmChannel.SendMessageAsync("Bienvenido al Trip caile al vc cuando haya banda, pa platicar");
                 var eb = new EmbedBuilder();
-                eb.AddField("Bienvenido a el Trip", "Saludaa toda la banda")
-                            .WithDescription(gUser.Mention.ToString() + "\n" + "** Eres el usuario **" + "**" + gUser.Guild.MemberCount + "**")
-                            .WithColor(Color.Blue)
+                eb.AddField("Bienvenido a el Trip", "Saluda toda la banda")
+                            .WithDescription($"** {gUser.Username} \n Eres el usuario  numero { (gUser.Guild as SocketGuild).MemberCount} **")
+                            .WithColor(new Discord.Color(33, 176, 252))
                             .WithCurrentTimestamp()
                             .WithImageUrl(gUser.Guild.IconUrl);
 
                 await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
 
+
+                FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
+                ImageGenEndpoints fluxp = new ImageGenEndpoints(client);
+                string cntPath = System.IO.Directory.GetCurrentDirectory();
+
+                //var imgp = await fluxp.GetIconsList();
+
+                //await ReplyAsync(imgp.ToString());
+
+                //var bp = await fluxp.GetBannersList();
+                //await ReplyAsync(bp.ToString());
+
+                WelcomeTemplates user = new WelcomeTemplates();
+                var numero = (gUser.Guild as SocketGuild).MemberCount;
+                user.username = gUser.Username;
+                user.avatar = gUser.GetAvatarUrl();
+                user.background = "#aaaaaa";
+                user.members = "Eres el miembro #" + numero.ToString();
+                user.icon = "chika";
+                user.banner = "wave";
+                user.color_welcome = "White";
+                user.color_username = "white";
+                user.color_members = "white";
+                var im2 = await fluxp.GetWelcomeImage(user);
+
+                System.Drawing.Image x = (Bitmap)((new ImageConverter()).ConvertFrom(im2.bytes));
+                try
+                {
+                    x.Save(cntPath + "/img/banner.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e);
+                }
+
+                await (gUser.Guild.DefaultChannel).SendFileAsync(cntPath + "/img/banner.jpg", $"Bienvenido { gUser.Mention}");
+
             }
         }
+        private async Task UserLeft(SocketGuildUser gUser)
+        {
+            var channel = _client.GetChannel(862650878360158219) as IVoiceChannel;
+            await channel.ModifyAsync(prop => prop.Name = $"👥 Miembros Totales: {(gUser.Guild as SocketGuild).MemberCount}");
+
+
+            if (gUser.IsBot || gUser.IsWebhook)
+            {
+                return;
+            }
+            else
+            {
+                var eb = new EmbedBuilder();
+                eb.AddField("El Trip te despide", "Me saludas al Chapa")
+                            .WithDescription($"** {gUser.Mention} \n Este compa Chapeo \n {((gUser.Guild as SocketGuild).MemberCount)} uno menos banda**")
+                            .WithColor(new Discord.Color(33, 176, 252))
+                            .WithCurrentTimestamp()
+                            .WithImageUrl("https://media.giphy.com/media/3o6ZtcOxQ9vi8vb9Cg/giphy.gif");
+
+                await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
+
+            }
+        }
+       
         private Task Client_Log(LogMessage arg)
         {
             Console.WriteLine(arg);
@@ -90,6 +159,7 @@ namespace Animabot
         {
             var message = arg as SocketUserMessage;
             var context = new SocketCommandContext(_client, message);
+           
             if (message.Author.IsBot)
             {
                 if (message.Content.Contains("el culo a queso"))
@@ -231,84 +301,30 @@ namespace Animabot
                         await mensa.AddReactionAsync(emote);
 
                     }
-                    #region 
-                    //else if (message.Content.Contains("una chinita") || message.Content.Contains("una japonesa") || message.Content.Contains("una asiatica"))
-                    //{
-                    //    //string elurl = Test();
-                    //    var emote = Emote.Parse("<:selfie_sky:790835470702608416>");
-                    //    var emote1 = Emote.Parse("<a:1357_muie:784655105520828449>");
-                    //    ulong canalito = 771574670356774973;
-                    //    if (context.Channel.Id != canalito)
-                    //    {
-                    //        string gato = "<@526260701484941323>";
+                    else if (message.Content.Contains("saca el twitter pinche bot") || (message.Content.Contains("twitter")))
+                    {
 
 
-                    //        var eb = new EmbedBuilder();
-                    //        eb.AddField("Mugrosona Asiatica", " Sabrosona pariente del " + gato)
-                    //                    .WithUrl("")
-                    //                    .WithColor(Color.Blue)
-                    //                    .WithCurrentTimestamp();
-                    //        ////.WithImageUrl("");
-                    //        //const int delay = 6000;
 
-                    //        var japo = await context.Channel.SendMessageAsync(embed: eb.Build());
-                    //        //await Task.Delay(delay);
+                        var mensa = await message.Channel.SendMessageAsync($"** Dale follow cabron \n https://twitter.com/elTripMx **");
+                        var emote = Emote.Parse("<:ke:759912866445918249>");
+                        await mensa.AddReactionAsync(emote);
 
-                    //        //var japo = await context.Channel.SendMessageAsync(elurl);
+                    }
+                    else if (message.Content.Contains("Que barrio pinche bot") || (message.Content.Contains("que barrio bot")))
+                    {
 
-                    //        await japo.AddReactionAsync(emote);
-                    //        await japo.AddReactionAsync(emote1);
-                    //    }
 
-                    //    else
-                    //    {
 
-                    //        var mensaje = await context.Channel.SendMessageAsync("Aqui no es, vamos con los marranotes" + MentionUtils.MentionChannel(canalito));
-                    //        await mensaje.AddReactionAsync(emote1);
-                    //        await context.Channel.SendMessageAsync("http://gph.is/2AeGSGt");
+                        var mensa = await message.Channel.SendMessageAsync($"** Dale follow cabron \n https://twitter.com/elTripMx **");
+                        var emote = Emote.Parse("<:ke:759912866445918249>");
+                        await mensa.AddReactionAsync(emote);
 
-                    //    }
-
-                    //}
-                    #endregion /*inutilizado*/
+                    }
 
                 }
             }
         }
-        #region
-        //public static String Test()
-        //{
-        //    string path = @".\Resources\japo.txt";
-        //    List<string> lines = new List<string>();
-        //    try
-        //    {
-        //        using (var sr = new StreamReader(path))
-        //        {
-        //            while (sr.Peek() > -1)
-        //                lines.Add(sr.ReadLine());
 
-        //        }
-        //        lines = Commands.Randomize(lines);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Error: " + ex.Message);
-
-        //    }
-        //    //foreach (string s in lines)
-        //    //{
-        //    //    Console.WriteLine(s);
-
-        //    //}
-        //    var random = new Random();
-
-        //    int index = random.Next(lines.Count);
-
-        //    //Console.WriteLine(lines[index]);
-        //    string defi = (lines[index]).ToString();
-        //    Console.WriteLine(defi + "es esta");
-        //    return defi;
-        //}
-        #endregion /*inutilizado*/
     }
 }
