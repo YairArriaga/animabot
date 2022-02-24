@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Discord.Addons.Interactive;
 using fluxpoint_sharp;
 using System.Drawing;
+using System.IO;
 
 namespace Animabot
 {
@@ -35,7 +36,7 @@ namespace Animabot
 
 
 
-            string token = "ODMzMjI5NzMxNzYzNzE2MDk2.YHvTqA.mX1udZnZdTbZE-t0nUFyM5E6OGM";
+            string token = "ODMzMjI5NzMxNzYzNzE2MDk2.YHvTqA.3unQg1ifkIKjG1ObNho5TxQeW1M";
 
 
             _client.Log += Client_Log;
@@ -51,9 +52,8 @@ namespace Animabot
 
 
         }
-       
-            
-        
+
+
         private async Task UserJoined(SocketGuildUser gUser)
         {
             var channel = _client.GetChannel(862650878360158219) as IVoiceChannel;
@@ -67,22 +67,10 @@ namespace Animabot
             else
             {
 
-
-                var dmChannel = await gUser.GetOrCreateDMChannelAsync();
-                await dmChannel.SendMessageAsync("Bienvenido al Trip caile al vc cuando haya banda, pa platicar");
-                var eb = new EmbedBuilder();
-                eb.AddField("Bienvenido a el Trip", "Saluda toda la banda")
-                            .WithDescription($"** {gUser.Username} \n Eres el usuario  numero { (gUser.Guild as SocketGuild).MemberCount} **")
-                            .WithColor(new Discord.Color(33, 176, 252))
-                            .WithCurrentTimestamp()
-                            .WithImageUrl(gUser.Guild.IconUrl);
-
-                await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
-
-
                 FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
-                ImageGenEndpoints fluxp = new ImageGenEndpoints(client);
-                string cntPath = System.IO.Directory.GetCurrentDirectory();
+                #region test
+                //ImageGenEndpoints fluxp = new ImageGenEndpoints(client);
+                //string cntPath = System.IO.Directory.GetCurrentDirectory();
 
                 //var imgp = await fluxp.GetIconsList();
 
@@ -90,33 +78,55 @@ namespace Animabot
 
                 //var bp = await fluxp.GetBannersList();
                 //await ReplyAsync(bp.ToString());
-
+                #endregion
                 WelcomeTemplates user = new WelcomeTemplates();
                 var numero = (gUser.Guild as SocketGuild).MemberCount;
                 user.username = gUser.Username;
-                user.avatar = gUser.GetAvatarUrl();
+                user.avatar = gUser.GetAvatarUrl() ?? "https://cdn.discordapp.com/embed/avatars/0.png";
                 user.background = "#aaaaaa";
                 user.members = "Eres el miembro #" + numero.ToString();
-                user.icon = "chika";
+                user.icon = "nyancat";
                 user.banner = "wave";
                 user.color_welcome = "White";
                 user.color_username = "white";
                 user.color_members = "white";
-                var im2 = await fluxp.GetWelcomeImage(user);
+                var im2 = await client.ImageGen.GetWelcomeImage(user);
+                #region inutilizado
+                //var ruta = cntPath + "/img/banner.jpg";
 
-                System.Drawing.Image x = (Bitmap)((new ImageConverter()).ConvertFrom(im2.bytes));
+                //System.Drawing.Image x = (Bitmap)((new ImageConverter()).ConvertFrom(im2.bytes));
+                //    try
+                //    {
+                //        x.Save(ruta, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                //    }
+                //    catch (Exception e)
+                //    {
+
+                //    //    await (gUser.Guild.DefaultChannel).SendMessageAsync($"{e + ruta}");                }
+
+                //    //await (gUser.Guild.DefaultChannel).SendFileAsync(cntPath + "/img/banner.jpg", $"Bienvenido { gUser.Mention}");
+
+                //}
+                #endregion
                 try
                 {
-                    x.Save(cntPath + "/img/banner.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    var dmChannel = await gUser.GetOrCreateDMChannelAsync();
+                    await dmChannel.SendMessageAsync("Bienvenido al Trip caile al vc cuando haya banda, pa platicar");
+                    var eb = new EmbedBuilder();
+                    eb.AddField("Bienvenido a el Trip", "Saluda toda la banda")
+                                .WithDescription($"** {gUser.Username} \n Eres el usuario  numero { (gUser.Guild as SocketGuild).MemberCount} **")
+                                .WithColor(new Discord.Color(33, 176, 252))
+                                .WithCurrentTimestamp()
+                                .WithImageUrl(gUser.Guild.IconUrl);
+                    Byte[] ib = im2.bytes;
 
+                    await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
+                    await (gUser.Guild.DefaultChannel).SendFileAsync(new MemoryStream(ib), "b.jpg", $"Bienvenido { gUser.Mention}");
                 }
-                catch (Exception e)
+                catch(Exception e)
                 {
-
-                    Console.WriteLine(e);
-                }
-
-                await (gUser.Guild.DefaultChannel).SendFileAsync(cntPath + "/img/banner.jpg", $"Bienvenido { gUser.Mention}");
+                    await (gUser.Guild.DefaultChannel).SendMessageAsync($"dile al animal {e}");                }
 
             }
         }
@@ -134,7 +144,7 @@ namespace Animabot
             {
                 var eb = new EmbedBuilder();
                 eb.AddField("El Trip te despide", "Me saludas al Chapa")
-                            .WithDescription($"** {gUser.Mention} \n Este compa Chapeo \n {((gUser.Guild as SocketGuild).MemberCount)} uno menos banda**")
+                            .WithDescription($"** {gUser.Nickname} \n Este compa Chapeo \n {((gUser.Guild as SocketGuild).MemberCount)} uno menos banda**")
                             .WithColor(new Discord.Color(33, 176, 252))
                             .WithCurrentTimestamp()
                             .WithImageUrl("https://media.giphy.com/media/3o6ZtcOxQ9vi8vb9Cg/giphy.gif");
@@ -143,7 +153,7 @@ namespace Animabot
 
             }
         }
-       
+
         private Task Client_Log(LogMessage arg)
         {
             Console.WriteLine(arg);
@@ -159,7 +169,7 @@ namespace Animabot
         {
             var message = arg as SocketUserMessage;
             var context = new SocketCommandContext(_client, message);
-           
+
             if (message.Author.IsBot)
             {
                 if (message.Content.Contains("el culo a queso"))

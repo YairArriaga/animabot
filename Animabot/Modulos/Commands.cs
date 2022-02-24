@@ -96,8 +96,8 @@ namespace Animabot.Modulos
         {
             var emote = Emote.Parse("<:ke:759912866445918249>");
             var emote1 = Emote.Parse("<:animal:787921991432798208>");
-            await ReplyAsync("Saludos hijos del pecado @everyone " + emote1);
-            var img = await ReplyAsync("https://imgur.com/gallery/qUgAHqa");
+            await ReplyAsync("Saludos pinche banda cotizada @everyone me agüitan " + emote1);
+            var img = await ReplyAsync("https://i.imgur.com/knftssu.jpeg");
             await img.AddReactionAsync(emote);
             await img.AddReactionAsync(emote1);
 
@@ -119,9 +119,9 @@ namespace Animabot.Modulos
             else
             {
                 var emote = Emote.Parse("<:animal:787921991432798208>");
-                var sent = await ReplyAsync("No te cotices pinche Aliolis Rehabilitado <@526260701484941323>");
+                var sent = await ReplyAsync("Saludos a Don gato el cotizado <@526260701484941323>");
                 await sent.AddReactionAsync(emote);
-                await ReplyAsync("https://imgur.com/gallery/LBQ0ej5");
+                await ReplyAsync("https://i.imgur.com/y87i21t.jpeg");
             }
         }
         [Command("macumba", RunMode = RunMode.Async)]
@@ -130,8 +130,8 @@ namespace Animabot.Modulos
         {
             var emote = Emote.Parse("<:mycumbag:817620852379746344>");
             var emote1 = Emote.Parse("<:animal:787921991432798208>");
-            await ReplyAsync("Caile santero deja los ritos o ya te agarro el espirutu maligno <@600076103977140247>");
-            var img = await ReplyAsync("https://tenor.com/G54a.gif");
+            await ReplyAsync("Dicen que al Macumba le pega su vieja y por eso ya no le cae <@600076103977140247>");
+            var img = await ReplyAsync("https://i.imgur.com/Pb99PGH.png");
             await img.AddReactionAsync(emote);
             await img.AddReactionAsync(emote1);
         }
@@ -567,7 +567,7 @@ namespace Animabot.Modulos
         }
         [Command("Reddit", RunMode = RunMode.Async)]
         [Summary(" - buscar subreddit (nsfw) comando + subreddit")]
-        [Alias("redp")]
+        [Alias("redp","tth" )]
         public async Task Rttp(string subreddit = null)
         {
             var emote = Emote.Parse("<a:chaqueta90:784649801332948993>");
@@ -582,7 +582,9 @@ namespace Animabot.Modulos
                     await Context.Channel.SendMessageAsync("Este subreddit no existe!");
                     return;
                 }
-                //if(imageurl)
+
+                
+                    //if(imageurl)
                 JArray arr = JArray.Parse(result);
                 JObject post = JObject.Parse(arr[0]["data"]["children"][0]["data"].ToString());
                 string enla;
@@ -601,9 +603,9 @@ namespace Animabot.Modulos
                 }
                 else
                 {
-                    Console.WriteLine(enla);
+                    //Console.WriteLine(enla);
                     var p = await ReplyAsync(enla);
-                    await Task.Delay(7000);
+                    await Task.Delay(4000);
                     await p.ModifyAsync(x =>
                     {
                         x.Embed = new EmbedBuilder()
@@ -626,6 +628,8 @@ namespace Animabot.Modulos
                 await ReplyAsync("http://gph.is/2AeGSGt");
             }
         }
+
+
         [Command("unban", RunMode = RunMode.Async)]
         [Summary(" - quitar ban usuario (mod) comando + id de usuario ")]
         [RequireUserPermission(GuildPermission.BanMembers, ErrorMessage = "No tienes el permiso ``unban_member``!")]

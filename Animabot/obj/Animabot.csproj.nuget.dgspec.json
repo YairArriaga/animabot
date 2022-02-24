@@ -56,19 +56,19 @@
             },
             "Microsoft.Bot.Builder.Dialogs": {
               "target": "Package",
-              "version": "[4.14.0, )"
+              "version": "[4.14.1, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[6.0.0-preview.5.21301.5, )"
+              "version": "[6.0.0-preview.7.21377.19, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
-              "version": "[1.10.8, )"
+              "version": "[1.11.1, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[6.0.0-preview.7.21377.19, )"
             },
             "fluxpoint-sharp": {
               "target": "Package",

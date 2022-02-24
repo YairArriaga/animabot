@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0SSqPGPDYk8HyxlvViaUfzn5IAmfj240Ulg1Q2VyOKZCx2WxAcr6EVnOlEe66atJgeJju+pE3wW41CYy6DrSQ==",
+  "dgSpecHash": "RLQMXRh4mF98zQk7/XVxivboKPRuwmP69d95dIvUySb2hfKmrE/N8sgtABHYldKRRRcDir+8FfKMcJco+cNqvg==",
   "success": true,
   "projectFilePath": "E:\\respaldodputeado\\Recovered data 07-11 20_17_53\\Resultado de Escaneo Profundo\\Partición Perdida1(NTFS)\\Users\\Knightowl\\source\\repos\\Animabot\\Animabot\\Animabot.csproj",
   "expectedPackageFiles": [
@@ -172,8 +172,6 @@
     "C:\\Users\\yarri\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\yarri\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\yarri\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\yarri\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\3.1.16\\microsoft.netcore.app.runtime.linux-x64.3.1.16.nupkg.sha512",
-    "C:\\Users\\yarri\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\3.1.16\\microsoft.aspnetcore.app.runtime.linux-x64.3.1.16.nupkg.sha512",
     "C:\\Users\\yarri\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.16\\microsoft.netcore.app.host.linux-x64.3.1.16.nupkg.sha512"
   ],
   "logs": []

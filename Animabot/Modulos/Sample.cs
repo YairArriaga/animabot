@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using fluxpoint_sharp;
 //using System.IO;
 using System.Drawing;
+using System.IO;
 
 namespace Animabot.Modulos
 {
@@ -310,12 +311,14 @@ namespace Animabot.Modulos
             else
             {
 
-                ciudad = ciudad.Replace(" ", String.Empty);
+                //ciudad = ciudad.Replace(" ", String.Empty);
+                ciudad = ciudad.Replace(" ", "%");
 
                 var emote = Emote.Parse("<:animal:787921991432798208>");
 
                 var client = new HttpClient();
-                var result = await client.GetStringAsync($"https://api.weatherbit.io/v2.0/current?city={ciudad}&key=620cb87e596344c5a55d8c0573e7dfb1&lang=es");
+                string urldec = "https://api.weatherbit.io/v2.0/current?city=" + System.Web.HttpUtility.UrlEncode(ciudad) + "&key=620cb87e596344c5a55d8c0573e7dfb1&lang=es";
+                var result = await client.GetStringAsync(urldec);
 
                 //JArray arr = JArray.Parse(result);
                 JObject post = JObject.Parse(result);
@@ -495,47 +498,55 @@ namespace Animabot.Modulos
         }
 
         [Command("test", RunMode = RunMode.Async)]
+        [Alias("prueba","p")]
         public async Task Pimg()
         {
             FluxpointClient client = new FluxpointClient("animalobot", "FPvctmi8qsdS5GH0V2zrTC0Ht6J");
+
+            #region test
             ImageGenEndpoints fluxp = new ImageGenEndpoints(client);
-            string cntPath = System.IO.Directory.GetCurrentDirectory();
+            //string cntPath = System.IO.Directory.GetCurrentDirectory();
 
             //var imgp = await fluxp.GetIconsList();
 
-            //await ReplyAsync(imgp.ToString());
+            //await ReplyAsync(imgp.list.ToList().ToString());
 
             //var bp = await fluxp.GetBannersList();
             //await ReplyAsync(bp.ToString());
-
+            #endregion
             WelcomeTemplates user = new WelcomeTemplates();
-            var numero = (Context.Guild as SocketGuild).MemberCount;
+            var numero = Context.Guild.MemberCount;
             user.username = Context.User.Username;
-            user.avatar= Context.User.GetAvatarUrl();
+            user.avatar = Context.User.GetAvatarUrl();
             user.background = "#aaaaaa";
-            user.members = "Eres el miembro #"+numero.ToString();
-            user.icon = "chika";
+            user.members = "Eres el miembro #" + numero.ToString();
+            user.icon = "nyancat";
             user.banner = "wave";
             user.color_welcome = "White";
             user.color_username = "white";
             user.color_members = "white";
-            var im2 = await fluxp.GetWelcomeImage(user);
+            //var im2 = await fluxp.GetWelcomeImage(user);
+            var im2 = await client.ImageGen.GetWelcomeImage(user);
+            #region inutilizado
+            //var ruta = cntPath + "/img/banner.jpg";
 
-            System.Drawing.Image x = (Bitmap)((new ImageConverter()).ConvertFrom(im2.bytes));
-            try
-            {
-                x.Save(cntPath+"/img/banner.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //System.Drawing.Image x = (Bitmap)((new ImageConverter()).ConvertFrom(im2.bytes));
+            //    try
+            //    {
+            //        x.Save(ruta, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            }
-            catch (Exception e)
-            {
+            //    }
+            //    catch (Exception e)
+            //    {
 
-                Console.WriteLine(e);
-            }
-   
-            await Context.Channel.SendFileAsync(cntPath + "/img/banner.jpg", $"Bienvenido { Context.User.Mention}");
+            //    //    await (gUser.Guild.DefaultChannel).SendMessageAsync($"{e + ruta}");                }
 
+            //    //await (gUser.Guild.DefaultChannel).SendFileAsync(cntPath + "/img/banner.jpg", $"Bienvenido { gUser.Mention}");
 
+            //}
+            #endregion
+            Byte[] ib = im2.bytes;
+            await Context.Channel.SendFileAsync(new MemoryStream(ib), "b.jpg", $"Bienvenido { Context.User.Mention}");
 
         }
 
