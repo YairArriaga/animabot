@@ -11,6 +11,7 @@ using Discord.Addons.Interactive;
 using fluxpoint_sharp;
 using System.Drawing;
 using System.IO;
+using Discord.Interactions;
 
 namespace Animabot
 {
@@ -25,34 +26,63 @@ namespace Animabot
 
         public async Task RunBotAsync()
         {
-            _client = new DiscordSocketClient();
+
+            var config = new DiscordSocketConfig()
+            {
+                GatewayIntents = GatewayIntents.All
+            };
+
+            _client = new DiscordSocketClient(config);
+            //_client = new DiscordSocketClient();
             _commands = new CommandService();
             _services = new ServiceCollection()
 
                 .AddSingleton(_client)
                 .AddSingleton(_commands)
+                .AddSingleton(x => new InteractionService(x.GetRequiredService<DiscordSocketClient>()))
                 .AddSingleton<InteractiveService>()
                 .BuildServiceProvider();
 
 
 
-            string token = "ODMzMjI5NzMxNzYzNzE2MDk2.YHvTqA.3unQg1ifkIKjG1ObNho5TxQeW1M";
+            string token = "ODMzMjI5NzMxNzYzNzE2MDk2.YHvTqA.VY62qCtDlvsW1cS3ILwuH8PPAvU";
 
 
             _client.Log += Client_Log;
             _client.UserJoined += UserJoined;
-            _client.UserLeft += UserLeft;
+            _client.UserLeft += Userleft;
 
             await RegisterCommandsAsync();
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
-            await _client.SetActivityAsync(new Game("Aqui Chambeando", ActivityType.Playing));
+            await _client.SetActivityAsync(new Game("Aqui Chambeando", ActivityType.Watching));
 
             await Task.Delay(-1);
 
 
         }
 
+        private  async Task Userleft(SocketGuild guild, SocketUser user)
+        {
+            var channel = _client.GetChannel(862650878360158219) as IVoiceChannel;
+            await channel.ModifyAsync(prop => prop.Name = $"👥 Miembros Totales: {guild.MemberCount}");
+
+            if (user.IsBot || user.IsWebhook)
+            {
+                return;
+            }
+            else
+            {
+                var eb = new EmbedBuilder();
+                eb.AddField("El Trip te despide", "Me saludas al Chapa")
+                            .WithDescription($"** {user.Username} \n Este compa Chapeo \n {(guild.MemberCount)} uno menos banda**")
+                            .WithColor(new Discord.Color(33, 176, 252))
+                            .WithCurrentTimestamp()
+                            .WithImageUrl("https://media.giphy.com/media/3o6ZtcOxQ9vi8vb9Cg/giphy.gif");
+
+                await(guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
+            }
+        }
 
         private async Task UserJoined(SocketGuildUser gUser)
         {
@@ -111,7 +141,7 @@ namespace Animabot
                 #endregion
                 try
                 {
-                    var dmChannel = await gUser.GetOrCreateDMChannelAsync();
+                    var dmChannel = await gUser.CreateDMChannelAsync();
                     await dmChannel.SendMessageAsync("Bienvenido al Trip caile al vc cuando haya banda, pa platicar");
                     var eb = new EmbedBuilder();
                     eb.AddField("Bienvenido a el Trip", "Saluda toda la banda")
@@ -124,19 +154,19 @@ namespace Animabot
                     await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
                     await (gUser.Guild.DefaultChannel).SendFileAsync(new MemoryStream(ib), "b.jpg", $"Bienvenido { gUser.Mention}");
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
-                    await (gUser.Guild.DefaultChannel).SendMessageAsync($"dile al animal {e}");                }
+                    await (gUser.Guild.DefaultChannel).SendMessageAsync($"dile al animal {e}");
+                }
 
             }
         }
-        private async Task UserLeft(SocketGuildUser gUser)
+        private async Task Chapeo(SocketUser user, SocketGuild guild)
         {
             var channel = _client.GetChannel(862650878360158219) as IVoiceChannel;
-            await channel.ModifyAsync(prop => prop.Name = $"👥 Miembros Totales: {(gUser.Guild as SocketGuild).MemberCount}");
+            await channel.ModifyAsync(prop => prop.Name = $"👥 Miembros Totales: {guild.MemberCount}");
 
-
-            if (gUser.IsBot || gUser.IsWebhook)
+            if (user.IsBot || user.IsWebhook)
             {
                 return;
             }
@@ -144,13 +174,12 @@ namespace Animabot
             {
                 var eb = new EmbedBuilder();
                 eb.AddField("El Trip te despide", "Me saludas al Chapa")
-                            .WithDescription($"** {gUser.Nickname} \n Este compa Chapeo \n {((gUser.Guild as SocketGuild).MemberCount)} uno menos banda**")
+                            .WithDescription($"** {user.Username} \n Este compa Chapeo \n {(guild.MemberCount)} uno menos banda**")
                             .WithColor(new Discord.Color(33, 176, 252))
                             .WithCurrentTimestamp()
                             .WithImageUrl("https://media.giphy.com/media/3o6ZtcOxQ9vi8vb9Cg/giphy.gif");
 
-                await (gUser.Guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
-
+                await (guild.DefaultChannel).SendMessageAsync(embed: eb.Build());
             }
         }
 
